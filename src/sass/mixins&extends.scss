@@ -1,0 +1,62 @@
+// @mixin vipcoinicon {
+//     width: 86px; /* Ширина квадрата */
+//     height: 86px; /* Высота квадрата */
+//     // background: linear-gradient(176.47deg, #FF3333 -36.48%, rgba(255, 51, 51, 0) 95.83%);
+//     // transform: rotate(45deg);
+//     // position: relative; /* Enable relative positioning */
+
+//     &::after { /* Target the before pseudo-element */
+//         width: 46px; /* Ширина квадрата */
+//         height: 46px;
+//         background: linear-gradient(176.47deg, #FF3333 -36.48%, rgba(255, 51, 51, 0) 95.83%);
+//         transform: rotate(45deg);
+//         position: relative; /* Enable relative positioning */
+//       }
+
+//     &::before { /* Target the before pseudo-element */
+//         content: "Vip coin"; /* Set the text content */
+//         position: absolute; /* Position absolutely within the square */
+//         top: 50%; /* Center vertically */
+//         left: 50%; /* Center horizontally */
+//         transform: translate(-50%, -50%); /* Center relative to parent */
+//         transform: rotate(-45deg);
+//         color: #fff; /* Text color */
+//         font-size: 10px; /* Text size */
+//         width: 40px;
+//         text-transform: uppercase;
+//     }
+// }
+
+@mixin vipcoin-icon ($width, $height, $background, $icon-text, $font-size, $font-weight) {
+    width: $width;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+
+    &::before { /* Rhombus overlay pseudo-element */
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 15%; 
+        transform: translate(-50%, -50%);
+        width: 69.76%;
+        height: 69.76%;
+        background: $background;
+        transform: rotate(45deg);
+    }
+
+    &::after { /* White text pseudo-element */
+        content: $icon-text;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: $font-size;
+        font-weight: $font-weight;
+    }
+}

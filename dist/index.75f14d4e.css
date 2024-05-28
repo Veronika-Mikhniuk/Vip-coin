@@ -1,4 +1,101 @@
-h1 {
-  color: red;
+:root {
+  --rhombus-color-gradient: linear-gradient(176.47deg, #f33 -36.48%, #f330 95.83%);
+  --rhombus-color-red: #f33;
+}
+
+* {
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: FuturaPT-Book;
+  font-size: 17px;
+}
+
+@font-face {
+  font-family: FuturaPT-Book;
+  src: url("FuturaPT-Book.ceb87464.ttf") format("truetype");
+}
+
+.container {
+  max-width: 1396px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+.header-container, .footer-container {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  display: flex;
+}
+
+.header-container .vipcoin-icon, .footer-container .vipcoin-icon {
+  justify-content: center;
+  align-items: center;
+  width: 86px;
+  height: 86px;
+  display: flex;
+  position: relative;
+}
+
+.header-container .vipcoin-icon:before, .footer-container .vipcoin-icon:before {
+  content: "";
+  background: var(--rhombus-color-gradient);
+  width: 69.76%;
+  height: 69.76%;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  transform: rotate(45deg);
+}
+
+.header-container .vipcoin-icon:after, .footer-container .vipcoin-icon:after {
+  content: "VIP COIN";
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-container .nav .nav__list, .footer-container .nav .nav__list {
+  text-transform: uppercase;
+  justify-content: space-between;
+  gap: 28px;
+  display: flex;
+}
+
+.header-container .nav .nav__list li, .footer-container .nav .nav__list li {
+  cursor: pointer;
+}
+
+.header-container .social-networks, .footer-container .social-networks {
+  align-items: center;
+  column-gap: 20px;
+  display: flex;
+}
+
+.header-container .social-networks a, .footer-container .social-networks a {
+  text-decoration: none;
+}
+
+.header-container .sign-in, .footer-container .sign-in {
+  align-items: center;
+  column-gap: 10px;
+  display: flex;
+}
+
+.header-container .sign-in p, .footer-container .sign-in p {
+  color: #f33;
 }
 /*# sourceMappingURL=index.75f14d4e.css.map */

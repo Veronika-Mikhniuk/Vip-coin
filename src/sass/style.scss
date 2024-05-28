@@ -1,3 +1,86 @@
-h1 {
-    color: red;
+@import 'mixins&extends';
+@import 'variables';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: FuturaPT-Book;
+    font-size: 17px;
+    color: #FFFFFF;
+    background-color: #000000;
 }
+
+@font-face {
+    font-family: 'FuturaPT-Book';
+    src: 
+      url('/src/Fonts/FuturaPT-Book.ttf') format('truetype'),
+}
+
+.container {
+    max-width: 1396px;
+    margin: auto;
+    padding: 0 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+.header-container, .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    .vipcoin-icon {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+    }
+
+    .nav {
+        .nav__list {
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            gap: 28px;
+
+            li {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .social-networks {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+
+        a{
+            text-decoration: none;
+        }
+    }
+
+    .sign-in {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        
+        p {
+            color: #FF3333;
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
