@@ -3,24 +3,35 @@
   src: url("Lato-Medium.4f696efd.ttf") format("truetype");
 }
 
-.introduction .introduction__title h1 {
+.packet-slider__title, .introduction__title h1 {
   font-family: Lato-Medium;
   font-size: 110px;
   font-weight: 500;
 }
 
-.introduction .introduction__text-button button {
+.introduction__text-button button {
   color: #fff;
+  cursor: pointer;
   background-color: #f33;
-  height: 70px;
-  padding: 20px 22px;
+  width: 100%;
+  max-width: 240px;
+  padding: 20px;
   font-size: 24px;
-  line-height: 31px;
+  transition: all 1s;
+}
+
+.introduction__text-button button:hover {
+  background-color: #ff6060;
+}
+
+.introduction__text-button button:active {
+  transform: scale(.9);
 }
 
 :root {
   --rhombus-color-gradient: linear-gradient(176.47deg, #f33 -36.48%, #f330 95.83%);
   --rhombus-color-red: #f33;
+  --swiper-theme-color: #f33 !important;
 }
 
 * {
@@ -38,6 +49,7 @@
 }
 
 .container {
+  width: 100%;
   max-width: 1396px;
   margin: auto;
   padding: 0 16px;
@@ -55,14 +67,14 @@ button {
   background-color: #000;
 }
 
-.header .header-container, .header .footer-container, .footer .header-container, .footer .footer-container {
+.header-container, .footer-container {
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   display: flex;
 }
 
-.header .header-container .vipcoin-icon, .header .footer-container .vipcoin-icon, .footer .header-container .vipcoin-icon, .footer .footer-container .vipcoin-icon {
+.header-container .vipcoin-icon, .footer-container .vipcoin-icon {
   justify-content: center;
   align-items: center;
   width: 86px;
@@ -71,7 +83,7 @@ button {
   position: relative;
 }
 
-.header .header-container .vipcoin-icon:before, .header .footer-container .vipcoin-icon:before, .footer .header-container .vipcoin-icon:before, .footer .footer-container .vipcoin-icon:before {
+.header-container .vipcoin-icon:before, .footer-container .vipcoin-icon:before {
   content: "";
   background: var(--rhombus-color-gradient);
   width: 69.76%;
@@ -82,7 +94,7 @@ button {
   transform: rotate(45deg);
 }
 
-.header .header-container .vipcoin-icon:after, .header .footer-container .vipcoin-icon:after, .footer .header-container .vipcoin-icon:after, .footer .footer-container .vipcoin-icon:after {
+.header-container .vipcoin-icon:after, .footer-container .vipcoin-icon:after {
   content: "VIP COIN";
   text-align: center;
   color: #fff;
@@ -92,34 +104,34 @@ button {
   position: absolute;
 }
 
-.header .header-container .nav .nav__list, .header .footer-container .nav .nav__list, .footer .header-container .nav .nav__list, .footer .footer-container .nav .nav__list {
+.nav__list {
   text-transform: uppercase;
   justify-content: space-between;
   gap: 28px;
   display: flex;
 }
 
-.header .header-container .nav .nav__list li, .header .footer-container .nav .nav__list li, .footer .header-container .nav .nav__list li, .footer .footer-container .nav .nav__list li {
+.nav__list li {
   cursor: pointer;
 }
 
-.header .header-container .social-networks, .header .footer-container .social-networks, .footer .header-container .social-networks, .footer .footer-container .social-networks {
+.social-networks {
   align-items: center;
   column-gap: 20px;
   display: flex;
 }
 
-.header .header-container .social-networks a, .header .footer-container .social-networks a, .footer .header-container .social-networks a, .footer .footer-container .social-networks a {
+.social-networks a {
   text-decoration: none;
 }
 
-.header .header-container .sign-in, .header .footer-container .sign-in, .footer .header-container .sign-in, .footer .footer-container .sign-in {
+.sign-in {
   align-items: center;
   column-gap: 10px;
   display: flex;
 }
 
-.header .header-container .sign-in p, .header .footer-container .sign-in p, .footer .header-container .sign-in p, .footer .footer-container .sign-in p {
+.sign-in p {
   color: #f33;
   cursor: pointer;
 }
@@ -140,7 +152,7 @@ button {
   left: 2%;
 }
 
-.introduction .introduction__title {
+.introduction__title {
   z-index: 1;
   max-width: 1170px;
   margin: auto;
@@ -148,7 +160,7 @@ button {
   position: relative;
 }
 
-.introduction .introduction__title .vipcoin-icon {
+.introduction__title .vipcoin-icon {
   justify-content: center;
   align-items: center;
   width: 141.42px;
@@ -159,7 +171,7 @@ button {
   left: 80%;
 }
 
-.introduction .introduction__title .vipcoin-icon:before {
+.introduction__title .vipcoin-icon:before {
   content: "";
   background: var(--rhombus-color-gradient);
   width: 69.76%;
@@ -170,7 +182,7 @@ button {
   transform: rotate(45deg);
 }
 
-.introduction .introduction__title .vipcoin-icon:after {
+.introduction__title .vipcoin-icon:after {
   content: "VIP COIN";
   text-align: center;
   color: #fff;
@@ -180,13 +192,13 @@ button {
   position: absolute;
 }
 
-.introduction .introduction__title .introduction__title-part2 {
+.introduction__title-part2 {
   position: absolute;
   top: 45%;
   left: 9%;
 }
 
-.introduction .introduction__text-button {
+.introduction__text-button {
   justify-content: center;
   align-items: center;
   column-gap: 30px;
@@ -195,10 +207,172 @@ button {
   display: flex;
 }
 
-.introduction .introduction__text-button .introduction__text {
-  max-width: 304px;
+.introduction__text {
+  max-width: 303px;
   font-size: 24px;
   font-weight: 400;
   line-height: 130%;
+}
+
+.packet-slider-section {
+  margin-bottom: 100px;
+}
+
+.packet-slider__title-text {
+  justify-content: center;
+  align-items: end;
+  column-gap: 248px;
+  margin-top: 100px;
+  display: flex;
+}
+
+.packet-slider__title {
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.packet-slider__text {
+  color: #000;
+  font-size: 24px;
+}
+
+.packet-slider__main-wrapper {
+  justify-content: center;
+  align-items: center;
+  margin-top: 58px;
+  display: flex;
+}
+
+.packet-slider__prev-button, .packet-slider__next-button {
+  text-align: center;
+  cursor: pointer;
+  background-color: #f33;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  transition: all 1s;
+}
+
+.packet-slider__prev-button:hover, .packet-slider__next-button:hover {
+  background-color: #ff6060;
+}
+
+.packet-slider__prev-button:active, .packet-slider__next-button:active {
+  transform: scale(.9);
+}
+
+.packet-slider__prev-button svg {
+  margin: 3px 9px 0 0;
+}
+
+.packet-slider__next-button svg {
+  margin: 3px 0 0 7px;
+}
+
+.packet-slider {
+  margin: 0 11.5px;
+}
+
+.packet-slider__wrapper {
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1150px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.packet-slider__slide {
+  padding: 20px 18.5px;
+  width: max-content !important;
+  margin: 0 !important;
+}
+
+.packet-slider__packet {
+  background: #fff;
+  border: 2px solid #f33;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  margin-top: 42.4px;
+  padding: 42.4px 0 30px;
+  transition: all 1s;
+  display: flex;
+  position: relative;
+}
+
+.packet-slider__packet:hover {
+  z-index: 3;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1.05);
+}
+
+.packet__price {
+  color: #f33;
+  margin-top: 20.15px;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.packet__percent-rate, .packet__term {
+  color: #000;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.packet__percent-rate span, .packet__term span {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.packet__text {
+  color: #000;
+  margin-top: 50px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.packet__rhombus {
+  justify-content: center;
+  align-items: center;
+  width: 84.85px;
+  height: 84.85px;
+  display: flex;
+  position: absolute;
+  top: -86.84px;
+  left: 42.42px;
+  transform: translate(50%, 51%);
+}
+
+.packet__rhombus:before {
+  content: "";
+  background: var(--rhombus-color-red);
+  width: 69.76%;
+  height: 69.76%;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  transform: rotate(45deg);
+}
+
+.packet__rhombus:after {
+  content: "VIP";
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+}
+
+.swiper-pagination {
+  padding-top: 30px !important;
 }
 /*# sourceMappingURL=index.75f14d4e.css.map */

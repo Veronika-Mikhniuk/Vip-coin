@@ -11,7 +11,6 @@
         position: absolute;
         top: 15%;
         left: 15%; 
-        // transform: translate(-50%, -50%);
         width: 69.76%;
         height: 69.76%;
         background: $background;
@@ -21,11 +20,8 @@
     &::after { /* White text pseudo-element */
         content: $icon-text;
         position: absolute;
-        // top: 50%;
-        // left: 50%;
         width: 100%;
         text-align: center;
-        // transform: translate(-50%, -50%);
         color: white;
         font-size: $font-size;
         font-weight: $font-weight;
@@ -46,10 +42,21 @@
 }
 
 %button-style {
-    height: 70px;
     background-color: #FF3333;
     color: #FFFFFF;
     font-size: 24px;
-    line-height: 31px;
-    padding: 20px 22px;
+    padding: 20px 20px;
+    max-width: 240px;
+    width: 100%;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+%button-style:hover {
+    background-color: #ff6060;
+    
+}
+
+%button-style:active {
+    transform: scale(0.9);    
 }

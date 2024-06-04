@@ -17,6 +17,7 @@
 
 .container {
     max-width: 1396px;
+    width: 100%;
     margin: auto;
     padding: 0 16px;
 }
@@ -30,49 +31,48 @@ button {
 
 .header, .footer {
     background-color: #000000;
-    .header-container, .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 20px;
+}
 
-        .vipcoin-icon {
-            @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
-        }
+.header-container, .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
 
-        .nav {
-            .nav__list {
-                display: flex;
-                justify-content: space-between;
-                text-transform: uppercase;
-                gap: 28px;
+    .vipcoin-icon {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+    }
+}
+        
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    gap: 28px;
 
-                li {
-                    cursor: pointer;
-                }
-            }
-        }
+    li {
+        cursor: pointer;
+    }
+}
 
-        .social-networks {
-            display: flex;
-            column-gap: 20px;
-            align-items: center;
+.social-networks {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
 
-            a{
-                text-decoration: none;
-            }
-        }
+    a{
+        text-decoration: none;
+    }
+}
 
-        .sign-in {
-            display: flex;
-            align-items: center;
-            column-gap: 10px;
+.sign-in {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
             
-            p {
-                color: #FF3333;
-                cursor: pointer;
-            }
-        }
+    p {
+        color: #FF3333;
+        cursor: pointer;
     }
 }
 
@@ -90,53 +90,190 @@ button {
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
     }
+}
 
-    .introduction__title {
-        margin:auto;
-        padding: 104px 0 290px;
-        max-width: 1170px;
-        position: relative;
-        z-index: 1;
+.introduction__title {
+    margin:auto;
+    padding: 104px 0 290px;
+    max-width: 1170px;
+    position: relative;
+    z-index: 1;
     
-        .vipcoin-icon {
-            @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-gradient), "VIP COIN", 24px, 400);
-            position: absolute;
-            top: 20%;
-            left: 80%;
-        }
+    .vipcoin-icon {
+        @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-gradient), "VIP COIN", 24px, 400);
+        position: absolute;
+        top: 20%;
+        left: 80%;
+    }
 
-        .introduction__title-part2 {
-            position: absolute;
-            top: 45%;
-            left: 9%;
+    h1 {
+        @extend %h1-h2-font;
+    }
+}
 
-        }
+.introduction__title-part2 {
+    position: absolute;
+    top: 45%;
+    left: 9%;
+}
+
+.introduction__text-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    margin-top: 50px;
+    padding-bottom: 120px;
+
+    button {
+        @extend %button-style;
+    }
+}
+
+.introduction__text {
+    max-width: 303px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+
+.packet-slider-section {
+    margin-bottom: 100px;
+}
+
+.packet-slider__title-text {
+    display: flex;
+    justify-content: center;
+    column-gap: 248px;
+    align-items: end;
+    margin-top: 100px;
+}
+
+.packet-slider__title {
+    color: #000000;
+    @extend %h1-h2-font;
+    margin-bottom: 20px;
+}
+
+.packet-slider__text {
+    color: #000000;
+    font-size: 24px;
+}
+
+ .packet-slider__main-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 58px;
+    justify-content: center;
+}
+    
+.packet-slider__prev-button, .packet-slider__next-button {
+    width: 60px;
+    height: 60px;
+    background-color: #FF3333;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.packet-slider__prev-button:hover, .packet-slider__next-button:hover {
+    background-color: #ff6060;
+}
+
+.packet-slider__prev-button:active, .packet-slider__next-button:active {
+    transform: scale(0.9);
+}
+
+.packet-slider__prev-button svg {
+    margin: 3px 9px 0 0;
+}
+
+.packet-slider__next-button svg{
+    margin: 3px 0 0 7px;
+}
+
+.packet-slider {
+    margin: 0 11.5px;
+}
+
+.packet-slider__wrapper{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1150px;
+    width: 100%;
+    margin-bottom: 20px;
+}
         
-        h1 {
-            @extend %h1-h2-font;
-        }
+.packet-slider__slide{
+    margin: 0 !important; /* Remove any margin from slides */
+    width: max-content !important;
+    padding: 20px 18.5px;
+}
+                    
+.packet-slider__packet {
+    width: 250px;
+    background: #FFFFFF;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 42.4px;
+    padding: 42.4px 0 30px;
+    position: relative;
+    transition: all 1s ease;
+}
+
+.packet-slider__packet:hover {
+    transform: scale(1.05);
+    z-index: 3;
+    position: relative;
+    cursor: pointer;
+}
+
+.packet__price {
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 130%;
+    color: #FF3333;
+    margin-top: 20.15px;
+}
+
+.packet__percent-rate, .packet__term {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+    margin-top: 10px;
+
+    span {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 130%;
+        color: #000000;
     }
+}
 
-    .introduction__text-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 30px;
-        margin-top: 50px;
-        padding-bottom: 120px;
+.packet__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    color: #000000;
+    margin-top: 50px;
+}
 
-        .introduction__text {
-            max-width: 304px;
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 130%;
-        }
+.packet__rhombus {
+    @include vipcoin-icon (84.85px, 84.85px, var(--rhombus-color-red), "VIP", 24px, 400);
+    position: absolute;
+    top: -86.84px;
+    left: 42.42px;
+    transform: translate(50%, 51%);
+}
 
-        button {
-            @extend %button-style;
-        }
-
-    }
+.swiper-pagination {
+    padding-top: 30px !important;
 }
 
 

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/index.75f14d4e.css">
+    <!-- ----swiper--- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
     <header class="header">
@@ -62,6 +64,81 @@
         </div>
     </section>
 
+    <section class="packet-slider-section">
+        <div class="container">
+            <div class="packet-slider__title-text">
+                <h2 class="packet-slider__title">Пакеты</h2>
+                <p class="packet-slider__text">Пример: вы размещаете $1000 на депозит. <br>Каждый день вам начисляется процент в VIP-Coin. <br>За месяц вы получите 290 VIP-Coin (1 VC=1 USDT).</p>
+            </div>
+
+            <div class="packet-slider__main-wrapper">
+                <button class="packet-slider__prev-button">
+                    <svg width="31" height="30" viewbox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16629 16.1706L20.5167 29.5207C20.8255 29.8298 21.2376 30 21.6772 30C22.1167 30 22.5289 29.8298 22.8376 29.5207L23.8208 28.5378C24.4605 27.8973 24.4605 26.8564 23.8208 26.2169L12.6102 15.0062L23.8332 3.78314C24.142 3.47412 24.3125 3.06217 24.3125 2.6229C24.3125 2.18315 24.142 1.7712 23.8332 1.46194L22.8501 0.479263C22.541 0.170242 22.1291 1.90879e-07 21.6896 2.29302e-07C21.2501 2.67725e-07 20.8379 0.170243 20.5291 0.479264L7.16629 13.8416C6.85679 14.1516 6.68679 14.5655 6.68776 15.0055C6.68679 15.4472 6.85679 15.8608 7.16629 16.1706Z" fill="white"></path>
+                    </svg>
+                </button>
+                <div class="packet-slider swiper">
+                    <div class="packet-slider__wrapper swiper-wrapper">
+                        <div class="packet-slider__slide swiper-slide">
+                            <div class="packet-slider__packet">
+                                <p class="packet__price">100</p>
+                                <p class="packet__percent-rate">26% в месяц</p>
+                                <p class="packet__term">Срок <span>200 дн</span></p>
+                                <p class="packet__text">уже доступно!</p>
+                                <span class="packet__rhombus"></span>
+                            </div>
+                        </div>
+                        <div class="packet-slider__slide swiper-slide">
+                            <div class="packet-slider__packet">
+                                <p class="packet__price">250</p>
+                                <p class="packet__percent-rate">27% в месяц</p>
+                                <p class="packet__term">Срок <span>205 дн</span></p>
+                                <p class="packet__text">уже доступно!</p>
+                                <span class="packet__rhombus"></span>
+                            </div>
+                        </div>
+                        <div class="packet-slider__slide swiper-slide">
+                            <div class="packet-slider__packet">
+                                <p class="packet__price">500</p>
+                                <p class="packet__percent-rate">28% в месяц</p>
+                                <p class="packet__term">Срок <span>210 дн</span></p>
+                                <p class="packet__text">уже доступно!</p>
+                                <span class="packet__rhombus"></span>
+                            </div>
+                        </div>
+                        <div class="packet-slider__slide swiper-slide">
+                            <div class="packet-slider__packet">
+                                <p class="packet__price">1000</p>
+                                <p class="packet__percent-rate">29% в месяц</p>
+                                <p class="packet__term">Срок <span>215 дн</span></p>
+                                <p class="packet__text">уже доступно!</p>
+                                <span class="packet__rhombus"></span>
+                            </div>
+                        </div>
+                        <div class="packet-slider__slide swiper-slide">
+                            <div class="packet-slider__packet">
+                                <p class="packet__price">1500</p>
+                                <p class="packet__percent-rate">30% в месяц</p>
+                                <p class="packet__term">Срок <span>220 дн</span></p>
+                                <p class="packet__text">уже доступно!</p>
+                                <span class="packet__rhombus"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="swiper-pagination"></div>
+                </div>
+                <button class="packet-slider__next-button">
+                    <svg width="31" height="30" viewbox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.8337 13.8294L10.4833 0.479264C10.1745 0.170242 9.76235 -5.37624e-07 9.32284 -4.60778e-07C8.88334 -3.83932e-07 8.47114 0.170242 8.16237 0.479264L7.1792 1.46218C6.53945 2.10267 6.53945 3.14363 7.1792 3.78314L18.3898 14.9938L7.16677 26.2169C6.85799 26.5259 6.6875 26.9378 6.6875 27.3771C6.6875 27.8168 6.85799 28.2288 7.16677 28.5381L8.14993 29.5207C8.45895 29.8298 8.8709 30 9.31041 30C9.74992 30 10.1621 29.8298 10.4709 29.5207L23.8337 16.1584C24.1432 15.8484 24.3132 15.4345 24.3122 14.9945C24.3132 14.5528 24.1432 14.1392 23.8337 13.8294Z" fill="white"></path>
+                    </svg> 
+                </button>
+            </div>
+        </div>
+
+    </section>
+
 
     <footer class="footer">
         <div class="container footer-container">
@@ -102,5 +179,10 @@
         </div>
 
     </footer>
+
+
+    <!-- ----swiper--- -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/index.de5c0784.js"></script>
 <script src="/Vip-coin.59712999.js"></script></body>
 </html>
