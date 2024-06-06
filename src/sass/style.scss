@@ -276,8 +276,90 @@ button {
     padding-top: 30px !important;
 }
 
+.road-map-section {
+    background-color: #000000;
+    position: relative;
+    padding: 100px 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        max-width: 1920px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 550px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.road-map__title-text {
+    display: flex;
+    gap: 151px;
+    align-items: end;
+    margin-left: 125px
+}
+
+.road-map__title {
+    @extend %h1-h2-font;
+    z-index: 1;
+}
+
+.road-map__text {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    max-width: 288px;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 18px;
+}
+
+.road-map__table {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: repeat(3, 260px);
+    gap: 30px;
+}
+
+.road-map__element-wrapper { //Для создания градиентной границы у блока
+    position: relative;
+    border-radius: 8px; 
+    padding: 1px; 
+    background: linear-gradient(145deg, #3b3a3a 40%, #2f2e2e00 75%); 
+    z-index: 1;
+}
+
+.road-map__element {
+    background: linear-gradient(130.66deg, rgba(255, 255, 255, 0.3) -19.06%, rgba(255, 255, 255, 0) 31.37%), #000000;
+    box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    
+    
+}
 
 
+
+.road-map__element__period {
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.road-map__element__description {
+    font-size: 20px;
+    line-height: 130%;
+    margin-top: 20px;
+}
 
 
 

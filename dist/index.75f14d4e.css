@@ -3,7 +3,7 @@
   src: url("Lato-Medium.4f696efd.ttf") format("truetype");
 }
 
-.packet-slider__title, .introduction__title h1 {
+.road-map__title, .packet-slider__title, .introduction__title h1 {
   font-family: Lato-Medium;
   font-size: 110px;
   font-weight: 500;
@@ -374,5 +374,84 @@ button {
 
 .swiper-pagination {
   padding-top: 30px !important;
+}
+
+.road-map-section {
+  background-color: #000;
+  padding: 100px 0;
+  position: relative;
+}
+
+.road-map-section:after {
+  content: "";
+  z-index: 0;
+  background: radial-gradient(50% 50%, #ff333380 0%, #f330 100%);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  height: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.road-map__title-text {
+  align-items: end;
+  gap: 151px;
+  margin-left: 125px;
+  display: flex;
+}
+
+.road-map__title {
+  z-index: 1;
+}
+
+.road-map__text {
+  z-index: 1;
+  width: 100%;
+  max-width: 288px;
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.road-map__table {
+  grid-template-rows: repeat(3, 260px);
+  grid-template-columns: repeat(5, 250px);
+  gap: 30px;
+  margin-top: 100px;
+  display: grid;
+}
+
+.road-map__element-wrapper {
+  z-index: 1;
+  background: linear-gradient(145deg, #3b3a3a 40%, #2f2e2e00 75%);
+  border-radius: 8px;
+  padding: 1px;
+  position: relative;
+}
+
+.road-map__element {
+  background: linear-gradient(130.66deg, #ffffff4d -19.06%, #fff0 31.37%), #000;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  box-shadow: -5px -5px 20px #0000004d, inset 30px 30px 36px #15151580;
+}
+
+.road-map__element__period {
+  font-size: 14px;
+  line-height: 130%;
+}
+
+.road-map__element__description {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 130%;
 }
 /*# sourceMappingURL=index.75f14d4e.css.map */
