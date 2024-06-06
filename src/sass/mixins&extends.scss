@@ -50,13 +50,15 @@
     width: 100%;
     transition: all 1s ease;
     cursor: pointer;
+    will-change: transform;
 }
 
 %button-style:hover {
     background-color: #ff6060;
-    
+    transform-origin: center;
 }
 
 %button-style:active {
-    transform: scale(0.9);    
+    transform: scale(0.9) translateZ(0);  
+    transform-origin: center;  
 }

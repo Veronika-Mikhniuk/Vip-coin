@@ -33,6 +33,13 @@ button {
     background-color: #000000;
 }
 
+.header {
+    margin-bottom: -1px;
+}
+.footer {
+    margin-top: -1px;
+}
+
 .header-container, .footer-container {
     display: flex;
     justify-content: space-between;
@@ -223,14 +230,16 @@ button {
     margin-top: 42.4px;
     padding: 42.4px 0 30px;
     position: relative;
+    will-change: transform;
     transition: all 1s ease;
 }
 
 .packet-slider__packet:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
     z-index: 3;
     position: relative;
     cursor: pointer;
+    transform-origin: center;
 }
 
 .packet__price {
