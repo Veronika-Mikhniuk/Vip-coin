@@ -111,10 +111,20 @@ button {
         position: absolute;
         top: 20%;
         left: 80%;
+        animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
     }
 
     h1 {
         @extend %h1-h2-font;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
     }
 }
 
