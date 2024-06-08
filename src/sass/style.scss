@@ -90,10 +90,34 @@ button {
     &::after {
         content: "";
         position: absolute;
-        width: 62.7vw;
+        max-width: 1129px;
+        width: 100%;
         height: 516px;
-        left: 2%;
+        left: 50%;
         top: 10px;
+        transform: translate(-75%, 0);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.last-section {
+    background-color: #000000;
+    position: relative;
+    padding: 71px 0 84px;
+}
+
+.last-section__container {
+    padding: 29px 16px 51px;
+    &::after {
+        content: "";
+        position: absolute;
+        max-width: 1129px;
+        width: 100%;
+        height: 689px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
     }
@@ -119,6 +143,28 @@ button {
     }
 }
 
+.last-section__title {
+    margin: auto;
+    max-width: 868px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    
+    .vipcoin-icon {
+        @include vipcoin-icon (107.42px, 107.42px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
+        position: absolute;
+        top: 40%;
+        left: 80%;
+        animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+    }
+
+    h2 {
+        @extend %h1-h2-font;
+    }
+}
+
 @keyframes rotate {
     from {
         transform: rotateY(0deg);
@@ -128,10 +174,20 @@ button {
     }
 }
 
+.last-section__title-part1 {
+    margin-right: 68px;
+    width: max-content;
+    text-align: center;
+}
+
 .introduction__title-part2 {
     position: absolute;
     top: 45%;
     left: 9%;
+}
+
+.last-section__title-part2 {
+    width: max-content;
 }
 
 .introduction__text-button {
@@ -144,6 +200,27 @@ button {
 
     button {
         @extend %button-style;
+    }
+}
+
+.last-section__text-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        @extend %button-style;
+        margin: 50px 0 30px;
+        z-index: 1;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FF3333;
+        font-size: 20px;
+        line-height: 180%;
+        z-index: 1;
+        cursor: pointer;
     }
 }
 
@@ -374,14 +451,3 @@ button {
     line-height: 130%;
     margin-top: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
