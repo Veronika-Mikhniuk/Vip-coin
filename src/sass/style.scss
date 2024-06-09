@@ -101,6 +101,44 @@ button {
     }
 }
 
+.running-line-section {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.running-line__line-1 {
+    display: flex   ;
+    gap: 100px;
+    white-space: nowrap;
+    animation: running-line 30s linear infinite;
+}
+
+.running-line__line-2 {
+    display: flex   ;
+    gap: 100px;
+    white-space: nowrap;
+    animation: running-line-revert 30s linear infinite;
+}
+
+.line-1__inner-blok-1, .line-1__inner-blok-2, .line-2__inner-blok-1, .line-2__inner-blok-2 {
+    display: flex; 
+    gap: 100px;  
+}
+
+@keyframes running-line {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes running-line-revert {
+    0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 .last-section {
     background-color: #000000;
     position: relative;
@@ -231,6 +269,11 @@ button {
     line-height: 130%;
 }
 
+.running-line-section {
+    a {
+        color: #3b3a3a;
+    }
+}
 
 .packet-slider-section {
     margin-bottom: 100px;
