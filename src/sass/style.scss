@@ -139,6 +139,133 @@ button {
   100% { transform: translateX(0); }
 }
 
+.goals-section {
+    background-color: #000000;
+    padding-top: 94px;
+    position: relative;
+
+    h2 {
+        @extend %h1-h2-font;
+        text-align: center;
+        z-index: 1;
+        position: relative;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 3190px;
+        height: 769px;
+        left: 50%;
+        top: 30px;
+        transform: translate(-50%, 0);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.goals__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    max-width: 420px;
+    margin: 20px auto 0;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.goals__points {
+    display: flex;
+    gap: 30px;
+    margin-top: 60px;
+    justify-content: space-between;
+}
+
+.goals__point-wrapper {
+    max-width: 319px;
+    @extend %gradient-border-style;
+}
+
+.goals__point {
+    padding: 30px 19px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 282px;
+    @extend %gradient-block;
+    
+
+    .vipcoin-icon-1  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "1", 40px, 400);
+    }
+
+    .vipcoin-icon-2  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "2", 40px, 400);
+    }
+
+    .vipcoin-icon-3  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "3", 40px, 400);
+    }
+
+    .vipcoin-icon-4  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "4", 40px, 400);
+    }
+
+    p {
+        font-size: 22px;
+        line-height: 130%;
+    }
+}
+
+.goals__additional-block {
+    margin: 100px auto 0;
+    background-color: #000000;
+    padding: 300px 0;
+    z-index: 2;
+    position: relative;
+
+    p, span {
+        max-width: 933px;
+        font-size: 50px;
+        line-height: 130%;
+        margin: auto;
+        text-align: center;
+        position: relative;
+    }
+
+    span {
+        margin: 0 10px;
+    }
+
+    p::after {
+        content: "";
+        position: absolute;
+        width: 665.23px;
+        height: 278.03px;
+        top: 35%;
+        left: 25.5%;
+        transform: translate(-50%, -50%) rotate(15.78deg);
+        border: 0.5px solid #FF3333;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 50%;
+    }
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    top: 82%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #FF3333;
+    z-index: -1;
+}
+
 .last-section {
     background-color: #000000;
     position: relative;
@@ -269,12 +396,6 @@ button {
     line-height: 130%;
 }
 
-.running-line-section {
-    a {
-        color: #3b3a3a;
-    }
-}
-
 .packet-slider-section {
     margin-bottom: 100px;
 }
@@ -298,7 +419,7 @@ button {
     font-size: 24px;
 }
 
- .packet-slider__main-wrapper {
+.packet-slider__main-wrapper {
     display: flex;
     align-items: center;
     margin-top: 58px;
@@ -467,21 +588,13 @@ button {
 }
 
 .road-map__element-wrapper { //Для создания градиентной границы у блока
-    position: relative;
-    border-radius: 8px; 
-    padding: 1px; 
-    background: linear-gradient(145deg, #3b3a3a 40%, #2f2e2e00 75%); 
-    z-index: 1;
+    max-width: 248px;
+    @extend %gradient-border-style;
 }
 
 .road-map__element {
-    background: linear-gradient(130.66deg, rgba(255, 255, 255, 0.3) -19.06%, rgba(255, 255, 255, 0) 31.37%), #000000;
-    box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
-    border-radius: 8px;
+    @extend %gradient-block;
     padding: 20px;
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .road-map__element__period {
