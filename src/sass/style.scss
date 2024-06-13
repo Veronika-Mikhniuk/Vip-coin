@@ -537,10 +537,237 @@ button {
     padding-top: 30px !important;
 }
 
+.promo-title__wrapper {
+    display: flex;
+    gap: 71px;
+    align-items: center;
+    max-width: 1821px;
+    width: 100%;
+    margin: 100px auto;
+
+    h2 {
+        font-family: 'Lato-Medium';
+        font-weight: 500;
+        font-size: 400px;
+        line-height: 130%;
+        color: #FF3333;
+    }
+}
+
+.promo-title__rhombus {
+    @include vipcoin-icon (211px, 211px, var(--rhombus-color-red), "", 16px, 400);
+}
+
+.promo__quick-start__title {
+    display: flex;
+    margin-bottom: 100px;
+    h2 {
+        @extend %h1-h2-font;
+        color: #000000;
+        max-width: 561px;
+        margin-left: 114px;
+        position: relative;
+    }
+}
+
+.promo__quick-start__element {
+    color: #000000;
+    position: absolute;
+    font-size: 24px;
+    line-height: 130%;
+    top:  70%;
+    left: 78%;
+    max-width: 348px;
+    width: 100%;
+}
+
+.promo__quick-start__rhombus {
+    @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-red), "X2", 50px, 600);
+}
+
+.promo__quick-start__points {
+    padding: 100px 115px;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 681px;
+    }
+}
+
+.promo__quick-start__point-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.promo__quick-start__point-element {
+    max-width: 298px;
+}
+
+.promo__quick-start__point-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    p {
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: 0.02em;
+        max-width: 210px
+    }
+}
+
+.promo__quick-start__point-rhombus {
+    @include vipcoin-icon (84.85px, 84.85px, var(--rhombus-color-red), "X2", 30px, 600);
+}
+
+.promo__heat, .promo__tesla {
+    margin-top: 200px;
+}
+
+.promo__heat__title, .promo__tesla__title {
+    margin-left: 114px;
+
+    h2 {
+        @extend %h1-h2-font;
+        color: #000000;
+    }
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        margin-top: 20px;
+    }
+}
+
+.promo__heat__description, .promo__tesla__description {
+    margin-top: 100px;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+    padding: 100px 114px;
+    p {
+        color: #000000;
+    }
+}
+
+.promo__heat__gifts, .promo__tesla__gifts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.promo__heat__gift-element, .promo__tesla__gift-element {
+    position: relative;
+    max-width: 193px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        z-index: 1;
+        position: relative;
+    }
+    
+    @include promo-element-circle;
+
+    & > :nth-child(2) {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    & > :nth-child(3) {
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.image-wrapper {
+    height: 125px;
+}
+
+.heat__iphone-icon, .heat__macbook-icon {
+    transform: translate(0, -10%);
+}
+
+.heat__dubai-icon,.tesla-2-icon {
+    transform: translate(0, -5%);
+}
+
+.tesla-1-icon, .tesla-3-icon {
+    transform: translate(0, 5%);
+}
+
+.tesla-4-icon {
+    transform: translate(0, 10%);
+}
+
+.promo__heat__description__scheme, .promo__tesla__description__scheme {
+    margin-top: 50px;
+
+    p {
+        font-size: 24px;
+        line-height: 130%;
+
+        span {
+            color: #FF3333;
+            font-size: 24px;
+        }
+    }
+
+    & > :first-child {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    & > :nth-child(2) {
+       margin-top: 20px;
+    }
+
+    & > :nth-child(4) {
+        margin-top: 40px;
+        max-width: 771px;
+    }
+
+    & > :nth-child(5) {
+        margin-top: 20px;
+        max-width: 717px;
+    }
+}
+
+.promo__heat__description__percent-wrapper, .promo__tesla__description__percent-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #FF3333;
+    max-width: 689px;
+    padding: 10px;
+    margin-top: 20px;
+
+    p {
+        font-size: 20px;
+    }
+}
+
+.promo__heat__description__percent-table, .promo__tesla__description__percent-table {
+    display: flex;
+    gap: 30px;
+}
+
+.promo__heat__description__percent-element > :first-child, .promo__tesla__description__percent-element > :first-child {
+    color: #FF3333;
+}
+
 .road-map-section {
     background-color: #000000;
     position: relative;
     padding: 100px 0;
+    margin-top: 100px;
 
     &::after {
         content: "";

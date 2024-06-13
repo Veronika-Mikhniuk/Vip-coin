@@ -28,6 +28,20 @@
     }
 }
 
+@mixin promo-element-circle {
+    &::after {
+        content: "";
+        width: 90px;
+        height: 90px;
+        background-color: #FF3333;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
 
 @font-face {
     font-family: 'Lato-Medium';
