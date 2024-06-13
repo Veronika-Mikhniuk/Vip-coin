@@ -1,3 +1,610 @@
-h1 {
-    color: red;
+@import 'mixins&extends';
+@import 'variables';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: FuturaPT-Book;
+    font-size: 17px;
+    color: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'FuturaPT-Book';
+    src: 
+      url('/src/Fonts/FuturaPT-Book.ttf') format('truetype'),
+}
+
+.container {
+    max-width: 1396px;
+    width: 100%;
+    margin: auto;
+    padding: 0 16px;
+}
+
+ul {
+    list-style: none;
+}
+button {
+    border: none;
+}
+
+.header, .footer {
+    background-color: #000000;
+}
+
+.header {
+    margin-bottom: -1px;
+}
+.footer {
+    margin-top: -1px;
+}
+
+.header-container, .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+
+    .vipcoin-icon {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+    }
+}
+        
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    gap: 28px;
+
+    li {
+        cursor: pointer;
+    }
+}
+
+.social-networks {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+
+    a{
+        text-decoration: none;
+    }
+}
+
+.sign-in {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+            
+    p {
+        color: #FF3333;
+        cursor: pointer;
+    }
+}
+
+.introduction {
+    background-color: #000000;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        max-width: 1129px;
+        width: 100%;
+        height: 516px;
+        left: 50%;
+        top: 10px;
+        transform: translate(-75%, 0);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.running-line-section {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.running-line__line-1 {
+    display: flex   ;
+    gap: 100px;
+    white-space: nowrap;
+    animation: running-line 30s linear infinite;
+}
+
+.running-line__line-2 {
+    display: flex   ;
+    gap: 100px;
+    white-space: nowrap;
+    animation: running-line-revert 30s linear infinite;
+}
+
+.line-1__inner-blok-1, .line-1__inner-blok-2, .line-2__inner-blok-1, .line-2__inner-blok-2 {
+    display: flex; 
+    gap: 100px;  
+}
+
+@keyframes running-line {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes running-line-revert {
+    0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.goals-section {
+    background-color: #000000;
+    padding-top: 94px;
+    position: relative;
+    overflow: hidden;
+
+    h2 {
+        @extend %h1-h2-font;
+        text-align: center;
+        z-index: 1;
+        position: relative;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 3190px;
+        height: 769px;
+        left: 50%;
+        top: 30px;
+        transform: translate(-50%, 0);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.goals__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    max-width: 420px;
+    margin: 20px auto 0;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.goals__points {
+    display: flex;
+    gap: 30px;
+    margin-top: 60px;
+    justify-content: space-between;
+}
+
+.goals__point-wrapper {
+    max-width: 319px;
+    @extend %gradient-border-style;
+}
+
+.goals__point {
+    padding: 30px 19px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 282px;
+    @extend %gradient-block;
+    
+
+    .vipcoin-icon-1  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "1", 40px, 400);
+    }
+
+    .vipcoin-icon-2  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "2", 40px, 400);
+    }
+
+    .vipcoin-icon-3  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "3", 40px, 400);
+    }
+
+    .vipcoin-icon-4  {
+        @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "4", 40px, 400);
+    }
+
+    p {
+        font-size: 22px;
+        line-height: 130%;
+    }
+}
+
+.goals__additional-block {
+    margin: 100px auto 0;
+    background-color: #000000;
+    padding: 300px 0;
+    z-index: 2;
+    position: relative;
+
+    p, span {
+        max-width: 933px;
+        font-size: 50px;
+        line-height: 130%;
+        margin: auto;
+        text-align: center;
+        position: relative;
+    }
+
+    span {
+        margin: 0 10px;
+    }
+
+    p::after {
+        content: "";
+        position: absolute;
+        width: 665.23px;
+        height: 278.03px;
+        top: 35%;
+        left: 25.5%;
+        transform: translate(-50%, -50%) rotate(15.78deg);
+        border: 0.5px solid #FF3333;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 50%;
+    }
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    top: 82%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #FF3333;
+    z-index: -1;
+}
+
+.last-section {
+    background-color: #000000;
+    position: relative;
+    padding: 71px 0 84px;
+}
+
+.last-section__container {
+    padding: 29px 16px 51px;
+    &::after {
+        content: "";
+        position: absolute;
+        max-width: 1129px;
+        width: 100%;
+        height: 689px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.introduction__title {
+    margin:auto;
+    padding: 104px 0 290px;
+    max-width: 1170px;
+    position: relative;
+    z-index: 1;
+    
+    .vipcoin-icon {
+        @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-gradient), "VIP COIN", 24px, 400);
+        position: absolute;
+        top: 20%;
+        left: 80%;
+        animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+    }
+
+    h1 {
+        @extend %h1-h2-font;
+    }
+}
+
+.last-section__title {
+    margin: auto;
+    max-width: 868px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    
+    .vipcoin-icon {
+        @include vipcoin-icon (107.42px, 107.42px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
+        position: absolute;
+        top: 40%;
+        left: 80%;
+        animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+    }
+
+    h2 {
+        @extend %h1-h2-font;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.last-section__title-part1 {
+    margin-right: 68px;
+    width: max-content;
+    text-align: center;
+}
+
+.introduction__title-part2 {
+    position: absolute;
+    top: 45%;
+    left: 9%;
+}
+
+.last-section__title-part2 {
+    width: max-content;
+}
+
+.introduction__text-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    margin-top: 50px;
+    padding-bottom: 120px;
+
+    button {
+        @extend %button-style;
+    }
+}
+
+.last-section__text-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        @extend %button-style;
+        margin: 50px 0 30px;
+        z-index: 1;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FF3333;
+        font-size: 20px;
+        line-height: 180%;
+        z-index: 1;
+        cursor: pointer;
+    }
+}
+
+.introduction__text {
+    max-width: 303px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.packet-slider-section {
+    margin-bottom: 100px;
+}
+
+.packet-slider__title-text {
+    display: flex;
+    justify-content: center;
+    column-gap: 248px;
+    align-items: end;
+    margin-top: 100px;
+}
+
+.packet-slider__title {
+    color: #000000;
+    @extend %h1-h2-font;
+    margin-bottom: 20px;
+}
+
+.packet-slider__text {
+    color: #000000;
+    font-size: 24px;
+}
+
+.packet-slider__main-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 58px;
+    justify-content: center;
+}
+    
+.packet-slider__prev-button, .packet-slider__next-button {
+    width: 60px;
+    height: 60px;
+    background-color: #FF3333;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.packet-slider__prev-button:hover, .packet-slider__next-button:hover {
+    background-color: #ff6060;
+}
+
+.packet-slider__prev-button:active, .packet-slider__next-button:active {
+    transform: scale(0.9);
+}
+
+.packet-slider__prev-button svg {
+    margin: 3px 9px 0 0;
+}
+
+.packet-slider__next-button svg{
+    margin: 3px 0 0 7px;
+}
+
+.packet-slider {
+    margin: 0 11.5px;
+}
+
+.packet-slider__wrapper{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1150px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+        
+.packet-slider__slide{
+    margin: 0 !important; /* Remove any margin from slides */
+    width: max-content !important;
+    padding: 20px 18.5px;
+}
+                    
+.packet-slider__packet {
+    width: 250px;
+    background: #FFFFFF;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 42.4px;
+    padding: 42.4px 0 30px;
+    position: relative;
+    will-change: transform;
+    transition: all 1s ease;
+}
+
+.packet-slider__packet:hover {
+    transform: scale(1.05) translateZ(0);
+    z-index: 3;
+    position: relative;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.packet__price {
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 130%;
+    color: #FF3333;
+    margin-top: 20.15px;
+}
+
+.packet__percent-rate, .packet__term {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    color: #000000;
+    margin-top: 10px;
+
+    span {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 130%;
+        color: #000000;
+    }
+}
+
+.packet__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 130%;
+    color: #000000;
+    margin-top: 50px;
+}
+
+.packet__rhombus {
+    @include vipcoin-icon (84.85px, 84.85px, var(--rhombus-color-red), "VIP", 24px, 400);
+    position: absolute;
+    top: -86.84px;
+    left: 42.42px;
+    transform: translate(50%, 51%);
+}
+
+.swiper-pagination {
+    padding-top: 30px !important;
+}
+
+.road-map-section {
+    background-color: #000000;
+    position: relative;
+    padding: 100px 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        max-width: 1920px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 1150px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        z-index: 0;
+    }
+}
+
+.road-map__title-text {
+    display: flex;
+    gap: 151px;
+    align-items: end;
+    margin-left: 125px
+}
+
+.road-map__title {
+    @extend %h1-h2-font;
+    z-index: 1;
+}
+
+.road-map__text {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    max-width: 288px;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 18px;
+}
+
+.road-map__table {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: repeat(3, 260px);
+    gap: 30px;
+}
+
+.road-map__element-wrapper { //Для создания градиентной границы у блока
+    max-width: 248px;
+    @extend %gradient-border-style;
+}
+
+.road-map__element {
+    @extend %gradient-block;
+    padding: 20px;
+}
+
+.road-map__element__period {
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.road-map__element__description {
+    font-size: 20px;
+    line-height: 130%;
+    margin-top: 20px;
 }

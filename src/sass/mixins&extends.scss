@@ -1,0 +1,81 @@
+@mixin vipcoin-icon ($width, $height, $background, $icon-text, $font-size, $font-weight) {
+    width: $width;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+
+    &::before { /* Rhombus overlay pseudo-element */
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 15%; 
+        width: 69.76%;
+        height: 69.76%;
+        background: $background;
+        transform: rotate(45deg);
+    }
+
+    &::after { /* White text pseudo-element */
+        content: $icon-text;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: $font-size;
+        font-weight: $font-weight;
+    }
+}
+
+
+@font-face {
+    font-family: 'Lato-Medium';
+    src: 
+      url('/src/Fonts/Lato-Medium.ttf') format('truetype'),
+}
+
+%h1-h2-font {
+    font-size: 110px;
+    font-family: "Lato-Medium";
+    font-weight: 500;
+}
+
+%button-style {
+    background-color: #FF3333;
+    color: #FFFFFF;
+    font-size: 24px;
+    padding: 20px 20px;
+    max-width: 240px;
+    width: 100%;
+    transition: all 1s ease;
+    cursor: pointer;
+    will-change: transform;
+}
+
+%button-style:hover {
+    background-color: #ff6060;
+    transform-origin: center;
+}
+
+%button-style:active {
+    transform: scale(0.9) translateZ(0);  
+    transform-origin: center;  
+}
+
+%gradient-border-style {
+    border-radius: 8px; 
+    padding: 1px; 
+    background: linear-gradient(130deg, #3b3a3a 40%, #2f2e2e00 65%); 
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+%gradient-block {
+    background: linear-gradient(130.66deg, rgba(255, 255, 255, 0.3) -19.06%, rgba(255, 255, 255, 0) 31.37%), #000000;
+    box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+}
