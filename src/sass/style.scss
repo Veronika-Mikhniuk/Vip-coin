@@ -143,6 +143,7 @@ button {
     background-color: #000000;
     padding-top: 94px;
     position: relative;
+    overflow: hidden;
 
     h2 {
         @extend %h1-h2-font;
