@@ -42,6 +42,22 @@
     }
 }
 
+@mixin pseudoelement-oval ($width, $height, $top-value, $left-value) {
+    &::after {
+        content: "";
+        position: absolute;
+        width: $width;
+        height: $height;
+        top: $top-value;
+        left: $left-value;
+        transform: translate(-50%, -50%) rotate(15.78deg);
+        border: 0.5px solid #FF3333;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 50%;
+    }
+}
+
 
 @font-face {
     font-family: 'Lato-Medium';

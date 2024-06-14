@@ -237,22 +237,12 @@ button {
         position: relative;
     }
 
-    span {
-        margin: 0 10px;
+    p {
+        @include pseudoelement-oval (665.23px, 278.03px, 35%, 25.5%);
     }
 
-    p::after {
-        content: "";
-        position: absolute;
-        width: 665.23px;
-        height: 278.03px;
-        top: 35%;
-        left: 25.5%;
-        transform: translate(-50%, -50%) rotate(15.78deg);
-        border: 0.5px solid #FF3333;
-        border-radius: 50%;
-        z-index: -1;
-        opacity: 50%;
+    span {
+        margin: 0 10px;
     }
 }
 
@@ -421,8 +411,94 @@ button {
     }
 }
 
+.staking-section {
+    background-color: #000000;
+
+    .container {
+        padding: 100px 16px 43px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1129px;
+            height: 516px;
+            top: 31px;
+            left: 48%;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+            transform: translate(-50%, 0);
+        }
+    }
+}
+
+.staking__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 69px;
+
+    h2 {
+        @extend %h1-h2-font;
+        margin: 40px 0 0 114px;
+        @include pseudoelement-oval (638.12px, 266.7px, 50%, 49.2%);
+    }
+
+    p {
+        font-size: 24px;
+        line-height: 130%;
+    }
+
+    & > :nth-child(1) {
+        max-width: 209px;
+        margin-left: 203px;
+    }
+
+    & > :nth-child(3) {
+        max-width: 266px;
+        align-self: flex-end;
+        margin: 40px 100px 0 0;
+    }
+}
+
+.staking__points-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 31px;
+}
+
+.staking__point__border {
+    @extend %gradient-border-style;
+    max-width: 319px;
+    height: 206px;
+    box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+}
+
+.staking__point {
+    @extend %gradient-block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 35px;
+
+    & > :nth-child(1) {
+        font-size: 24px;
+        line-height: 120%;
+        font-weight: 600;
+        padding: 0 40px;
+    }
+
+    & > :nth-child(2) {
+        font-size: 20px;
+        line-height: 130%;
+    }
+}
+
 .packet-slider-section {
     margin-bottom: 100px;
+    margin-top: 157px;
 }
 
 .packet-slider__title-text {
@@ -430,7 +506,6 @@ button {
     justify-content: center;
     column-gap: 248px;
     align-items: end;
-    margin-top: 100px;
 }
 
 .packet-slider__title {
