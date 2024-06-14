@@ -397,6 +397,30 @@ button {
     line-height: 130%;
 }
 
+.stock-exchange-container {
+    display: flex;
+    justify-content: center;
+    gap: 283px;
+    align-items: center;
+    padding: 100px 0;
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 335px;
+        margin-top: 15px;
+    }
+
+    h2 {
+        color: #000000;
+        font-size: 100px;
+        line-height: 130%;
+        font-weight: 500;
+        max-width: 423px;
+    }
+}
+
 .packet-slider-section {
     margin-bottom: 100px;
 }
