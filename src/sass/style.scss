@@ -20,6 +20,24 @@
     width: 100%;
     margin: auto;
     padding: 0 16px;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 1200px;
+    }
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 1000px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        max-width: 900px;
+    }
+
+    @media only screen and (max-width: 933px) {
+        max-width: 700px;
+    }
+    
+    
 }
 
 ul {
@@ -35,12 +53,15 @@ button {
 
 .header {
     margin-bottom: -1px;
+    @media only screen and (max-width: 933px) {
+       display: none;
+    }
 }
 .footer {
     margin-top: -1px;
 }
 
-.header-container, .footer-container {
+.header-container, .footer-container, .mobile-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +69,10 @@ button {
 
     .vipcoin-icon {
         @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+
+        @media only screen and (max-width: 933px) {
+            @include vipcoin-icon (66px, 66px, var(--rhombus-color-gradient), "VIP COIN", 12px, 400);
+         }
     }
 }
         
@@ -60,6 +85,18 @@ button {
     li {
         cursor: pointer;
     }
+
+    @media only screen and (max-width: 1250px) {
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 5px;
+        justify-content: center;
+        max-width: 400px;
+    }
+    @media only screen and (max-width: 1100px) {
+        row-gap: 5px;
+    }
+    
 }
 
 .social-networks {
@@ -83,6 +120,140 @@ button {
     }
 }
 
+
+.mobile-header {
+    background-color: #000000;
+    padding-top: 0;
+    display: none;
+
+    @media only screen and (max-width: 933px) {
+        display: block;
+    }
+
+}
+
+.mobile-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 16px;
+}
+.mobile-header__elements-wrapper {
+    display: flex;
+
+    .sign-in {
+        z-index: 3;
+        position: relative;
+    }
+}
+.mobile-social-networks {
+    margin: 10px 0 0 22px;
+}
+
+
+#menu__toggle {
+    opacity: 0;
+}
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 24px;
+    right: 110px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index:4;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #ffffff;
+transition-duration: .25s;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+display: block;
+position: fixed;
+visibility: hidden;
+top: 0;
+right: -100%;
+width: 270px;
+height: 100%;
+padding: 100px 0;
+background-color: #000000;
+box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+z-index: 2;
+transition-duration: .25s;
+overflow: hidden;
+
+li {
+    z-index: 3; 
+    position: relative
+}
+
+&::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+    transform: translate(-50%, 0);
+    top: 0;
+    left:0;
+}
+}
+
+.menu__item {
+display: block;
+padding: 12px 24px;
+color: #ffffff;
+font-size: 17px;
+text-decoration: none;
+text-transform: uppercase;
+transition-duration: .25s;
+}
+.menu__item:hover {
+background-color: #FF3333;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+top: 0;
+transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+top: 0;
+transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+visibility: visible;
+top: 0;
+right: 0;
+}
+
+
+
+
+
+
+
+
 .introduction {
     background-color: #000000;
     position: relative;
@@ -98,6 +269,16 @@ button {
         transform: translate(-75%, 0);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 1400px) {
+            transform: translate(-65%, 0)
+        }
+        @media only screen and (max-width: 1250px) {
+            transform: translate(-60%, 0)
+        }
+        @media only screen and (max-width: 1100px) {
+            transform: translate(-55%, 0)
+        }
     }
 }
 
@@ -108,6 +289,10 @@ button {
     width: 100%;
     overflow: hidden;
     padding: 20px 0;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 0;
+    }
 }
 
 .running-line__line-1 {
@@ -145,6 +330,10 @@ button {
     position: relative;
     overflow: hidden;
 
+    @media only screen and (max-width: 1100px) {
+        padding-top: 64px;
+    }
+
     h2 {
         @extend %h1-h2-font;
         text-align: center;
@@ -162,6 +351,10 @@ button {
         transform: translate(-50%, 0);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 1100px) {
+            height: 969px;
+        }
     }
 }
 
@@ -181,6 +374,11 @@ button {
     gap: 30px;
     margin-top: 60px;
     justify-content: space-between;
+
+    @media only screen and (max-width: 1100px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .goals__point-wrapper {
@@ -197,6 +395,15 @@ button {
     gap: 20px;
     height: 282px;
     @extend %gradient-block;
+
+    @media only screen and (max-width: 1250px) {
+        height: 340px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        height: 282px;
+    }
+    
     
 
     .vipcoin-icon-1  {
@@ -228,6 +435,13 @@ button {
     z-index: 2;
     position: relative;
 
+    @media only screen and (max-width: 1250px) {
+        padding: 200px 0;
+    }
+    @media only screen and (max-width: 1100px) {
+        padding: 20px 0 140px;
+    }
+
     p, span {
         max-width: 933px;
         font-size: 50px;
@@ -235,10 +449,27 @@ button {
         margin: auto;
         text-align: center;
         position: relative;
+
+        @media only screen and (max-width: 933px) {
+            max-width: 690px;
+            font-size: 40px;
+        }
     }
 
     p {
         @include pseudoelement-oval (665.23px, 278.03px, 35%, 25.5%);
+
+        @media only screen and (max-width: 1250px) {
+            @include pseudoelement-oval (638.12px, 266.7px, 35%, 26.5%);
+        }
+
+        @media only screen and (max-width: 1100px) {
+            @include pseudoelement-oval (538.12px, 199.7px, 45%, 32.5%);
+        }
+        @media only screen and (max-width: 933px) {
+            @include pseudoelement-oval (538.12px, 199.7px, 45%, 50%);
+        }
+        
     }
 
     span {
@@ -261,6 +492,10 @@ button {
     background-color: #000000;
     position: relative;
     padding: 71px 0 84px;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 0;
+    }
 }
 
 .last-section__container {
@@ -276,6 +511,10 @@ button {
         transform: translate(-50%, -50%);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 1100px) {
+            height: 589px;
+        }
     }
 }
 
@@ -285,6 +524,13 @@ button {
     max-width: 1170px;
     position: relative;
     z-index: 1;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 30px 0 190px;
+    }
+    @media only screen and (max-width: 933px) {
+        padding: 30px 0 160px;
+    }
     
     .vipcoin-icon {
         @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-gradient), "VIP COIN", 24px, 400);
@@ -292,6 +538,26 @@ button {
         top: 20%;
         left: 80%;
         animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+
+        @media only screen and (max-width: 1250px) {
+            @include vipcoin-icon (115px, 115px, var(--rhombus-color-gradient), "VIP COIN", 21px, 400);
+            top: 21%;
+            position: absolute;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            @include vipcoin-icon (100px, 100px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
+            left: 78%;
+            top: 12%;
+            position: absolute;
+        }
+
+        @media only screen and (max-width: 933px) {
+            @include vipcoin-icon (80px, 80px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+            left: 78%;
+            top: 12%;
+            position: absolute;
+        }
     }
 
     h1 {
@@ -307,6 +573,11 @@ button {
     display: flex;
     flex-direction: column;
     align-items: end;
+
+    @media only screen and (max-width: 1250px) {
+        align-items: center;
+    }
+    
     
     .vipcoin-icon {
         @include vipcoin-icon (107.42px, 107.42px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
@@ -314,6 +585,10 @@ button {
         top: 40%;
         left: 80%;
         animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+
+        @media only screen and (max-width: 1250px) {
+            left: 70%;
+        }
     }
 
     h2 {
@@ -340,6 +615,11 @@ button {
     position: absolute;
     top: 45%;
     left: 9%;
+
+    @media only screen and (max-width: 1250px) {
+        top: 41%;
+    }
+    
 }
 
 .last-section__title-part2 {
@@ -353,6 +633,10 @@ button {
     column-gap: 30px;
     margin-top: 50px;
     padding-bottom: 120px;
+
+    @media only screen and (max-width: 1100px) {
+        padding-bottom: 90px;
+    }
 
     button {
         @extend %button-style;
@@ -394,12 +678,28 @@ button {
     align-items: center;
     padding: 100px 0;
 
+    @media only screen and (max-width: 1250px) {
+        justify-content: space-between;
+        gap: 0;
+    }
+    @media only screen and (max-width: 1100px) {
+        padding: 60px 0;
+    }
+    @media only screen and (max-width: 933px) {
+        flex-direction: column;
+    }
+    
+
     p {
         color: #000000;
         font-size: 24px;
         line-height: 130%;
         max-width: 335px;
         margin-top: 15px;
+        @media only screen and (max-width: 933px) {
+            text-align: center;
+            margin: 15px auto 0;
+        }
     }
 
     h2 {
@@ -408,6 +708,10 @@ button {
         line-height: 130%;
         font-weight: 500;
         max-width: 423px;
+        @media only screen and (max-width: 933px) {
+            font-size: 80px;
+            text-align: center;
+        }
     }
 }
 
@@ -417,6 +721,10 @@ button {
     .container {
         padding: 157px 16px 43px;
         position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            padding-top: 100px;
+        }
 
         &::after {
             @extend %gradient-block-pseudoelement;
@@ -438,7 +746,17 @@ button {
         margin: 40px 0 0 114px;
         position: relative;
         @include pseudoelement-oval (638.12px, 266.7px, 85%, 44.2%);
+
+        @media only screen and (max-width: 1400px) {
+            @include pseudoelement-oval (618.12px, 246.7px, 70%, 49%);
+        }
+        @media only screen and (max-width: 933px) {
+            margin-left: 70px;
+            @include pseudoelement-oval (418.12px, 180.7px, 70%, 45%);
+        }
+
     }
+    
 
     p {
         font-size: 24px;
@@ -448,12 +766,18 @@ button {
     & > :nth-child(1) {
         max-width: 209px;
         margin-left: 203px;
+        @media only screen and (max-width: 933px) {
+            margin-left: 50px;
+        }
     }
 
     & > :nth-child(3) {
         max-width: 266px;
         align-self: flex-end;
         margin: 40px 100px 0 0;
+        @media only screen and (max-width: 933px) {
+            margin-right: 0;
+        }
     }
 }
 
@@ -461,6 +785,13 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 31px;
+
+    @media only screen and (max-width: 1250px) {
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin: 31px auto 0;
+        row-gap: 30px;
+     }
 }
 
 .staking__point__border {
@@ -468,6 +799,11 @@ button {
     max-width: 319px;
     height: 206px;
     box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 270px;
+        height: 230px;
+    }
 }
 
 .staking__point {
@@ -479,22 +815,37 @@ button {
     gap: 10px;
     padding: 0 35px;
 
+    @media only screen and (max-width: 1400px) {
+        padding: 16 36px;
+    }
+
     & > :nth-child(1) {
         font-size: 24px;
         line-height: 120%;
         font-weight: 600;
         padding: 0 40px;
+
+        @media only screen and (max-width: 1400px) {
+            padding: 0 20px;
+        }
     }
 
     & > :nth-child(2) {
         font-size: 20px;
         line-height: 130%;
+
+        @media only screen and (max-width: 1400px) {
+            height: 130px;
+        }
     }
 }
 
 .packet-slider-section {
-    margin-bottom: 100px;
-    margin-top: 157px;
+    margin: 157px 0 100px;
+
+    @media only screen and (max-width: 1100px) {
+        margin: 90px 0 70px;
+    }
 }
 
 .packet-slider__title-text {
@@ -502,6 +853,17 @@ button {
     justify-content: center;
     column-gap: 248px;
     align-items: end;
+
+    @media only screen and (max-width: 1250px) {
+        column-gap: 140px;
+    }
+    @media only screen and (max-width: 1100px) {
+        column-gap: 80px;
+    }
+    @media only screen and (max-width: 933px) {
+        flex-direction: column;
+        align-items: start;
+    }
 }
 
 .packet-slider__title {
@@ -558,6 +920,19 @@ button {
     max-width: 1150px;
     width: 100%;
     margin-bottom: 20px;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 860px;
+    }
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 573px;
+    }
+
+    
+    @media only screen and (max-width: 933px) {
+        max-width: 288px;
+    }
 }
         
 .packet-slider__slide{
@@ -640,6 +1015,10 @@ button {
         padding-top: 200px;
         position: relative;
 
+        @media only screen and (max-width: 1100px) {
+            padding-top: 160px;
+        }
+
         &::after {
             @extend %gradient-block-pseudoelement;
             top: 29px;
@@ -661,6 +1040,14 @@ button {
         margin: auto;
         position: relative;
         @include pseudoelement-oval (638.12px, 266.7px, 70%, 49%);
+
+        @media only screen and (max-width: 1400px) {
+            @include pseudoelement-oval (618.12px, 246.7px, 70%, 49%);
+        }
+        @media only screen and (max-width: 933px) {
+            margin-left: 70px;
+            @include pseudoelement-oval (418.12px, 180.7px, 70%, 45%);
+        }
     }
 
     p {
@@ -689,6 +1076,10 @@ button {
     padding: 30px 0 30px 30px;
     @extend %gradient-block;
 
+    @media only screen and (max-width: 1100px) {
+        padding-right: 10px;
+    }
+
     & > :nth-child(1) {
         font-size: 36px;
         line-height: 120%;
@@ -709,6 +1100,10 @@ button {
     display: flex;
     gap: 35px;
     margin-top: 49px;
+
+    @media only screen and (max-width: 1100px) {
+        gap: 15px;
+    }
 }
 
 .referal-system__reward {
@@ -716,6 +1111,9 @@ button {
     & > :nth-child(1) {
         font-size: 26px;
         line-height: 130%;
+        @media only screen and (max-width: 1100px) {
+            height: 68px;
+        }
     }
 
     & > :nth-child(2) {
@@ -736,6 +1134,11 @@ button {
 
     &-text1, &-text2 {
         padding-right: 30px;
+
+        @media only screen and (max-width: 1250px) {
+            padding-right: 5px;
+        }
+        
     }
 }
 
@@ -750,6 +1153,15 @@ button {
         font-size: 20px;
         line-height: 130%;
         min-height: 104px;
+
+        @media only screen and (max-width: 1250px) {
+            max-width: 334px;
+            padding-right: 5px;
+            height: 156px;
+        }
+        @media only screen and (max-width: 1100px) {
+            max-width: 274px;
+        }
     }
 }
 
@@ -769,15 +1181,24 @@ button {
     font-size: 20px;
     line-height: 130%;
     opacity: 70%;
+
+    @media only screen and (max-width: 1100px) {
+        margin-right: 0;
+    }
 }
 
 .promo-title__wrapper {
     display: flex;
-    gap: 71px;
+    justify-content: space-between;
     align-items: center;
     max-width: 1821px;
     width: 100%;
     margin: 100px auto;
+    padding: 0 16px;
+
+    @media only screen and (max-width: 1100px) {
+        margin: 40px auto;
+    }
 
     h2 {
         font-family: 'Lato-Medium';
@@ -785,11 +1206,38 @@ button {
         font-size: 400px;
         line-height: 130%;
         color: #FF3333;
+
+        @media only screen and (max-width: 1830px) {
+            font-size: 300px;
+        }
+        @media only screen and (max-width: 1400px) {
+            font-size: 250px;
+        }
+        @media only screen and (max-width: 1250px) {
+            font-size: 210px;
+        }
+        @media only screen and (max-width: 930px) {
+            font-size: 190px;
+        }
+    }
+
+    @media only screen and (max-width: 1830px) {
+        max-width: 1600px;
     }
 }
 
 .promo-title__rhombus {
     @include vipcoin-icon (211px, 211px, var(--rhombus-color-red), "", 16px, 400);
+
+    @media only screen and (max-width: 1830px) {
+        @include vipcoin-icon (180px, 180px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 1400px) {
+        @include vipcoin-icon (140px, 140px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (110px, 110px, var(--rhombus-color-red), "", 16px, 400);
+    }
 }
 
 .promo__quick-start__title {
@@ -801,6 +1249,10 @@ button {
         max-width: 561px;
         margin-left: 114px;
         position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            margin-left: 34px;
+        }
     }
 }
 
@@ -817,12 +1269,23 @@ button {
 
 .promo__quick-start__rhombus {
     @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-red), "X2", 50px, 600);
+
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (110px, 110px, var(--rhombus-color-red), "X2", 43px, 600);
+    }
 }
 
 .promo__quick-start__points {
     padding: 100px 115px;
     border: 2px solid #FF3333;
     border-radius: 8px;
+
+    @media only screen and (max-width: 14000px) {
+        padding: 80px 95px;
+    }
+    @media only screen and (max-width: 1250px) {
+        padding: 50px;
+    }
 
     p {
         color: #000000;
@@ -841,32 +1304,57 @@ button {
 
 .promo__quick-start__point-element {
     max-width: 298px;
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 238px;
+    }
 }
 
 .promo__quick-start__point-title {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    position: relative;
+
+   
 
     p {
         font-size: 36px;
         font-weight: 900;
         line-height: 120%;
         letter-spacing: 0.02em;
-        max-width: 210px
+        max-width: 210px;
+        position: relative;
+
+        @media only screen and (max-width: 1250px) {
+            font-size: 30px;
+            max-width: 160px;
+        }
     }
 }
 
 .promo__quick-start__point-rhombus {
     @include vipcoin-icon (84.85px, 84.85px, var(--rhombus-color-red), "X2", 30px, 600);
+
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (64.85px, 64.85px, var(--rhombus-color-red), "X2", 25px, 600);
+    }
 }
 
 .promo__heat, .promo__tesla {
     margin-top: 200px;
+
+    @media only screen and (max-width: 1100px) {
+        margin-top: 100px;
+    }
 }
 
 .promo__heat__title, .promo__tesla__title {
     margin-left: 114px;
+
+    @media only screen and (max-width: 1100px) {
+        margin-left: 34px;
+    }
 
     h2 {
         @extend %h1-h2-font;
@@ -886,6 +1374,14 @@ button {
     border: 2px solid #FF3333;
     border-radius: 8px;
     padding: 100px 114px;
+
+    @media only screen and (max-width: 1250px) {
+        padding: 50px;
+    }
+    @media only screen and (max-width: 1100px) {
+        margin-top: 50px;
+    }
+    
     p {
         color: #000000;
     }
@@ -903,6 +1399,10 @@ button {
     flex-direction: column;
     align-items: center;
 
+    @media only screen and (max-width: 1100px) {
+        max-width: 163px;
+    }
+
     img {
         z-index: 1;
         position: relative;
@@ -913,6 +1413,10 @@ button {
     & > :nth-child(2) {
         margin-top: 20px;
         font-size: 24px;
+        text-align: center;
+        @media only screen and (max-width: 1100px) {
+            margin-top: 0;
+        }
     }
 
     & > :nth-child(3) {
@@ -1002,6 +1506,9 @@ button {
     position: relative;
     padding: 100px 0;
     margin-top: 100px;
+    @media only screen and (max-width: 1100px) {
+        padding: 60px 0;
+    }
 
     &::after {
         content: "";
@@ -1023,7 +1530,11 @@ button {
     display: flex;
     gap: 151px;
     align-items: end;
-    margin-left: 125px
+    margin-left: 125px;
+
+    @media only screen and (max-width: 1100px) {
+        margin-left: 35px
+    }
 }
 
 .road-map__title {
@@ -1047,6 +1558,16 @@ button {
     grid-template-columns: repeat(5, 250px);
     grid-template-rows: repeat(3, 260px);
     gap: 30px;
+
+    @media only screen and (max-width: 1400px) {
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows: repeat(4, 260px);
+        justify-content: center;
+    }
+    @media only screen and (max-width: 1250px) {
+        grid-template-columns: repeat(3, 250px);
+        grid-template-rows: repeat(5, 260px);
+    }
 }
 
 .road-map__element-wrapper { //Для создания градиентной границы у блока

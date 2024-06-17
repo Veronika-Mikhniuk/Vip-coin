@@ -11,7 +11,8 @@ const swiper = new Swiper('.packet-slider', {
     pagination: {
       el:'.swiper-pagination',
       clickable: true,
-    }
+    },
+
 
 });
 
