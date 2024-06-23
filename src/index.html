@@ -46,7 +46,60 @@
                 <p>Войти</p>
             </div>
         </div>
+    </header>
 
+    <header class="mobile-header">
+        <div class="container mobile-header__container">
+            <div class="vipcoin-icon"></div>
+            <div class="mobile-header__elements-wrapper">
+                <div class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn header-btn" for="menu__toggle">
+                      <span></span>
+                    </label>
+                    <ul class="menu__box">
+                        <label class="menu__btn box-btn" for="menu__toggle">
+                            <span></span>
+                        </label>
+                        <li><a class="menu__item" href="#">Цели</a></li>
+                        <li><a class="menu__item" href="#">Стейкинг</a></li>
+                        <li><a class="menu__item" href="#">Пакеты</a></li>
+                        <li><a class="menu__item" href="#">Реферальная система</a></li>
+                        <li><a class="menu__item" href="#">Промо</a></li>
+                        <li><a class="menu__item" href="#">Road Map</a></li>
+                        <div class="social-networks mobile-social-networks">
+                            <a href="/">
+                                <img src="./Images/Icons/inst_icon.svg" alt="insta">
+                            </a>
+                            <a href="/">
+                                <img src="./Images/Icons/tg_icon.svg" alt="telegram">
+                            </a>
+                            <a href="/">
+                                <img src="./Images/Icons/vk_icon.svg" alt="vkontakte">
+                            </a>
+                            <a href="/">
+                                <img src="./Images/Icons/ytube_icon.svg" alt="ytube">
+                            </a>
+                            <a href="/">
+                                <img src="./Images/Icons/ok_icon.svg" alt="odnoklassniki">
+                            </a>
+                        </div>
+                        <div class="sign-in">
+                            <a href="/">
+                                <img src="./Images/Icons/profile-icon.svg" alt="profile">
+                            </a>
+                            <p>Войти</p>
+                        </div>
+                    </ul>
+                </div>
+                <div class="sign-in">
+                    <a href="/">
+                        <img src="./Images/Icons/profile-icon.svg" alt="profile">
+                    </a>
+                    <p>Войти</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <section class="introduction">
@@ -159,6 +212,52 @@
         </div>
     </section>
 
+    <section class="stock-exchange-section">
+        <div class="container stock-exchange-container">
+            <h2>1 VIP-Coin <br>1 USDT </h2>
+            <div class="stock-exchange__image-wrapper">
+                <img src="./Images/stock-exchange-image.png" alt="stock-exchange-image">
+                <p>После выхода на биржу VIP-Coin сможет приобрести любой желающий со всего мира</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="staking-section">
+        <div class="container">
+            <div class="staking__title-wrapper">
+                <p>Как добыть монеты до выхода на биржу?</p>
+                <h2>Взаимный стейкинг</h2>
+                <p>начисление монет VIP-coin по заданному алгоритму при депозите в USD</p>
+            </div>
+            <div class="staking__points-wrapper">
+                <div class="staking__point__border">
+                    <div class="staking__point">
+                        <p>От 26% до 39% в месяц</p>
+                        <p>Процент начисления зависит от суммы депозита</p>
+                    </div>
+                 </div>
+                 <div class="staking__point__border">
+                    <div class="staking__point">
+                        <p>Ежедневные начисления</p>
+                        <p>Начисление R-Coin происходит ежедневно в 3:00 по Московскому времени</p>
+                    </div>
+                </div>
+                <div class="staking__point__border">
+                    <div class="staking__point">
+                        <p>Мгновенный вывод</p>
+                        <p>Конвертируйте начисления <br>в USDT по текущему курсу и выводите на любой кошелек</p>
+                    </div>
+                </div>
+                <div class="staking__point__border">
+                    <div class="staking__point">
+                        <p>Постепенное открытие</p>
+                        <p>Новых пакетов позволит компании гармонично развиваться</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="packet-slider-section">
         <div class="container">
             <div class="packet-slider__title-text">
@@ -168,7 +267,7 @@
 
             <div class="packet-slider__main-wrapper">
                 <button class="packet-slider__prev-button">
-                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.16629 16.1706L20.5167 29.5207C20.8255 29.8298 21.2376 30 21.6772 30C22.1167 30 22.5289 29.8298 22.8376 29.5207L23.8208 28.5378C24.4605 27.8973 24.4605 26.8564 23.8208 26.2169L12.6102 15.0062L23.8332 3.78314C24.142 3.47412 24.3125 3.06217 24.3125 2.6229C24.3125 2.18315 24.142 1.7712 23.8332 1.46194L22.8501 0.479263C22.541 0.170242 22.1291 1.90879e-07 21.6896 2.29302e-07C21.2501 2.67725e-07 20.8379 0.170243 20.5291 0.479264L7.16629 13.8416C6.85679 14.1516 6.68679 14.5655 6.68776 15.0055C6.68679 15.4472 6.85679 15.8608 7.16629 16.1706Z" fill="white"/>
                     </svg>
                 </button>
@@ -229,6 +328,260 @@
                 </button>
             </div>
         </div>
+    </section>
+
+    <section class="referal-system-section">
+        <div class="container">
+            <div class="referal-system__title-wrapper">
+                <h2>Реферальная система</h2>
+                <p>стейкинг взаимный, потому что вы получаете проценты от депозитов ваших партнеров</p>
+            </div>
+            <div class="referal-system__points-wrapper">
+
+                <div class="referal-system__point-border">
+                    <div class="referal-system__point">
+                        <p>Бонус с продаж</p>
+                        <p>Мгновенное вознаграждение за приглашения</p>
+                        <div class="referal-system__reward-wrapper">
+                            <div class="referal-system__reward">
+                                <p>от 4% до 6%</p>
+                                <p class="referal-system__reward-text1">За приглашения в первую линию</p>
+                            </div>
+                            <div class="referal-system__reward">
+                                <p>До 6 линий</p>
+                                <p class="referal-system__reward-text2">Вы получаете вознаграждения от депозитов партнеров вплоть до 6 линии</p>
+                            </div>
+                        </div>
+                        <div class="referal-system__example-wrapper">
+                            <div class="referal-system__rhombus"></div>
+                            <p class="referal-system__example-text1">Пример: ваш реферал на первой линии сделал депозит в 10 000 USDT. Вы мгновенно получаете 400 R-Coin.</p>
+                        </div>
+                        <p class="referal-system__example-expl">* в зависимости от квалификации</p>
+                    </div>
+                </div>
+
+                <div class="referal-system__point-border">
+                    <div class="referal-system__point">
+                        <p>Взаимный стейкинг</p>
+                        <p>начисление процентов от депозитов ваших партнеров</p>
+                        <div class="referal-system__reward-wrapper">
+                            <div class="referal-system__reward">
+                                <p>от 2% до 6%</p>
+                                <p class="referal-system__reward-text3">От депозита первой линии в месяц</p>
+                            </div>
+                            <div class="referal-system__reward">
+                                <p>До 6 линий в глубину:</p>
+                                <p class="referal-system__reward-text4">вы получаете ежедневный процент от депозитов партнеров вплоть до 6 линии</p>
+                            </div>
+                        </div>
+                        <div class="referal-system__example-wrapper">
+                            <div class="referal-system__rhombus"></div>
+                            <p>Пример: Ваш реферал на первой линии сделал депозит 10 000 USDT. Со следующего дня и каждые последующие сутки, вы получаете 10 RC. В месяц получится + 300 R-Coin, то есть 3% от его депозита.</p>
+                        </div>
+                        <p class="referal-system__example-expl">* в зависимости от квалификации</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section">
+        <div class="promo-title__wrapper">
+            <div class="promo-title__rhombus"></div>
+            <h2>Промо</h2>
+            <div class="promo-title__rhombus"></div>
+        </div>
+        <div class="container">
+
+            <div class="promo__quick-start">
+                <div class="promo__quick-start__title">
+                    <h2>"Быстрый старт" <span class="promo__quick-start__element">Удвойте свой маркетинг на неделю и получите мгновенный бонус</span></h2>
+                    <div class="promo__quick-start__rhombus"></div>
+                </div>
+                <div class="promo__quick-start__points">
+                    <p>Для участия в промо пригласите 4х партнеров с депозитом от $1000 в первую линию в течение одного месяца после вашей регистрации.</p>
+                    <div class="promo__quick-start__point-wrapper">
+                        <div class="promo__quick-start__point-element">
+                            <div class="promo__quick-start__point-title">
+                                <p>Бонус <br>с продаж</p>
+                                <div class="promo__quick-start__point-rhombus"></div>
+                            </div>
+                            <p>В течение недели все ваши бонусы с продаж удваиваются</p>
+                        </div>
+                        <div class="promo__quick-start__point-element">
+                            <div class="promo__quick-start__point-title">
+                                <p>Взаимный стейкинг</p>
+                                <div class="promo__quick-start__point-rhombus"></div>
+                            </div>
+                            <p>В течение недели все проценты от депозитов партнеров удваиваются</p>
+                        </div>
+                        <div class="promo__quick-start__point-element">
+                            <div class="promo__quick-start__point-title">
+                                <p>Мгновенный бонус</p>
+                                <div class="promo__quick-start__point-rhombus"></div>
+                            </div>
+                            <p>Получите бонус за 4 проданных пакета от <br>400 до 4000 VIP-Coin!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo__heat">
+                <div class="promo__heat__title">
+                    <h2>"Жара"</h2>
+                    <p>Получайте призы за оборот всех 6-ти линий</p>
+                </div>
+                <div class="promo__heat__description">
+                    <div class="promo__heat__gifts">
+                        <div class="promo__heat__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/heat-prize-airpods.svg" alt="airpos-icon">
+                            </div>
+                            <p>5000 USDT</p>
+                            <p>AirPods pro</p>
+                        </div>
+                        <div class="promo__heat__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/heat-prize-apple-watch.svg" alt="apple-watch-icon">
+                            </div>
+                            <p>10000 USDT</p>
+                            <p>Apple Watch 6</p>
+                        </div>
+                        <div class="promo__heat__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/heat-prize-iphone.svg" alt="iphone-icon" class="heat__iphone-icon">
+                            </div>
+                            <p>30000 USDT</p>
+                            <p>iPhone 12 Pro Max 512 gb</p>
+                        </div>
+                        <div class="promo__heat__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/heat-prize-macbook.svg" alt="macbook-icon" class="heat__macbook-icon">
+                            </div>
+                            <p>55000 USDT</p>
+                            <p>MacBook Pro 13 M1 512gb</p>
+                        </div>
+                        <div class="promo__heat__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/heat-prize-dubai.svg" alt="tickets-icon" class="heat__dubai-icon">
+                            </div>
+                            <p>100000 USDT</p>
+                            <p>Поездка в Дубаи на двоих (авиаперелет, проживание 5 звезд, проход на закрытое мероприятие VIP-Coin)</p>
+                        </div>
+                    </div>
+                    <div class="promo__heat__description__scheme">
+                    <p>Баллы для промо считаются по схеме:</p>
+                    <p>1 балл = 1 USDT оборота * % оборота для данной линии</p>
+                    <div class="promo__heat__description__percent-wrapper">
+                        <p>% от оборота</p>
+                        <div class="promo__heat__description__percent-table">
+                            <div class="promo__heat__description__percent-element">
+                                <p>100%</p>
+                                <p>1 линия</p>
+                            </div>
+                            <div class="promo__heat__description__percent-element">
+                                <p>50%</p>
+                                <p>2 линия</p>
+                            </div>
+                            <div class="promo__heat__description__percent-element">
+                                <p>25%</p>
+                                <p>3 линия</p>
+                            </div>
+                            <div class="promo__heat__description__percent-element">
+                                <p>10%</p>
+                                <p>4 линия</p>
+                            </div>
+                            <div class="promo__heat__description__percent-element">
+                                <p>5%</p>
+                                <p>5 линия</p>
+                            </div>
+                            <div class="promo__heat__description__percent-element">
+                                <p>3%</p>
+                                <p>6 линия</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Это означает, что 100% оборота первой линии пойдут в зачет баллов для промо, со второй линии 50% оборота будет засчитано, с третьей - 25% и т.д.</p>
+                    <p>Акция действует <span>с 1 по 31 июля</span> 2021 года. Вы можете получить в акции только один подарок. Денежные эквиваленты не предусмотрены.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo__tesla">
+                <div class="promo__tesla__title">
+                    <h2>"Tesla"</h2>
+                    <p>Получайте призы за оборот всех 6-ти линий</p>
+                </div>
+                <div class="promo__tesla__description">
+                    <div class="promo__tesla__gifts">
+                        <div class="promo__tesla__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/prize-tesla-1.svg" alt="airpos-icon" class="tesla-1-icon">
+                            </div>
+                            <p>1000000 баллов</p>
+                            <p>Tesla Model 3 Standart Plus</p>
+                        </div>
+                        <div class="promo__tesla__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/prize-tesla-2.svg" alt="apple-watch-icon" class="tesla-2-icon">
+                            </div>
+                            <p>1500000 баллов</p>
+                            <p>Tesla Model Y Long Range AWD</p>
+                        </div>
+                        <div class="promo__tesla__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/prize-tesla-3.svg" alt="iphone-icon" class="tesla-3-icon">
+                            </div>
+                            <p>32000000 баллов</p>
+                            <p>Tesla Model S Long Range</p>
+                        </div>
+                        <div class="promo__tesla__gift-element">
+                            <div class="image-wrapper">
+                                <img src="./Images/prize-tesla-4.svg" alt="macbook-icon" class="tesla-4-icon">
+                            </div>
+                            <p>3000000 баллов</p>
+                            <p>Tesla Model X Plaid</p>
+                        </div>
+                    </div>
+                    <div class="promo__tesla__description__scheme">
+                    <p>Баллы для промо считаются по схеме:</p>
+                    <p>1 балл = 1 USDT оборота * % оборота для данной линии</p>
+                    <div class="promo__tesla__description__percent-wrapper">
+                        <p>% от оборота</p>
+                        <div class="promo__tesla__description__percent-table">
+                            <div class="promo__tesla__description__percent-element">
+                                <p>100%</p>
+                                <p>1 линия</p>
+                            </div>
+                            <div class="promo__tesla__description__percent-element">
+                                <p>50%</p>
+                                <p>2 линия</p>
+                            </div>
+                            <div class="promo__tesla__description__percent-element">
+                                <p>25%</p>
+                                <p>3 линия</p>
+                            </div>
+                            <div class="promo__tesla__description__percent-element">
+                                <p>10%</p>
+                                <p>4 линия</p>
+                            </div>
+                            <div class="promo__tesla__description__percent-element">
+                                <p>5%</p>
+                                <p>5 линия</p>
+                            </div>
+                            <div class="promo__tesla__description__percent-element">
+                                <p>3%</p>
+                                <p>6 линия</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Это означает, что 100% оборота первой линии пойдут в зачет баллов для промо, со второй линии 50% оборота будет засчитано, с третьей - 25% и т.д.</p>
+                    <p>Акция действует с 1 по 31 июля 2021 года. Вы можете получить в акции только один подарок. Денежные эквиваленты не предусмотрены.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section class="road-map-section">
@@ -361,6 +714,34 @@
                     <li>Road map</li>
                 </ul>
             </nav>
+            <div class="social-networks">
+                <a href="/">
+                    <img src="./Images/Icons/inst_icon.svg" alt="insta">
+                </a>
+                <a href="/">
+                    <img src="./Images/Icons/tg_icon.svg" alt="telegram">
+                </a>
+                <a href="/">
+                    <img src="./Images/Icons/vk_icon.svg" alt="vkontakte">
+                </a>
+                <a href="/">
+                    <img src="./Images/Icons/ytube_icon.svg" alt="ytube">
+                </a>
+                <a href="/">
+                    <img src="./Images/Icons/ok_icon.svg" alt="odnoklassniki">
+                </a>
+            </div>
+            <div class="sign-in">
+                <a href="/">
+                    <img src="./Images/Icons/profile-icon.svg" alt="profile">
+                </a>
+                <p>Войти</p>
+            </div>
+        </div>
+    </footer>
+    <footer class="mobile-footer">
+        <div class="container footer-container">
+            <div class="vipcoin-icon"></div>
             <div class="social-networks">
                 <a href="/">
                     <img src="./Images/Icons/inst_icon.svg" alt="insta">

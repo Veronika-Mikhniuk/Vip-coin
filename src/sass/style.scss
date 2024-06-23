@@ -9,6 +9,10 @@
     color: #FFFFFF;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 @font-face {
     font-family: 'FuturaPT-Book';
     src: 
@@ -20,6 +24,30 @@
     width: 100%;
     margin: auto;
     padding: 0 16px;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 1200px;
+    }
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 1000px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        max-width: 900px;
+    }
+
+    @media only screen and (max-width: 933px) {
+        max-width: 700px;
+    }
+    @media only screen and (max-width: 530px) {
+        max-width: 400px;
+    }
+    @media only screen and (max-width: 400px) {
+        max-width: 300px;
+    }
+    
+    
 }
 
 ul {
@@ -35,12 +63,18 @@ button {
 
 .header {
     margin-bottom: -1px;
+    @media only screen and (max-width: 933px) {
+       display: none;
+    }
 }
 .footer {
     margin-top: -1px;
+    @media only screen and (max-width: 933px) {
+        display: none;
+     }
 }
 
-.header-container, .footer-container {
+.header-container, .footer-container, .mobile-header, .mobile-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +82,24 @@ button {
 
     .vipcoin-icon {
         @include vipcoin-icon (86px, 86px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+
+        @media only screen and (max-width: 933px) {
+            @include vipcoin-icon (66px, 66px, var(--rhombus-color-gradient), "VIP COIN", 12px, 400);
+         }
+    }
+
+    .container {
+        @media only screen and (max-width: 530px) {
+            max-width: 530px;
+        }
+    }
+}
+
+.mobile-footer {
+    .social-networks {
+        @media only screen and (max-width: 400px) {
+           display: none;
+        }
     }
 }
         
@@ -60,6 +112,18 @@ button {
     li {
         cursor: pointer;
     }
+
+    @media only screen and (max-width: 1250px) {
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 5px;
+        justify-content: center;
+        max-width: 400px;
+    }
+    @media only screen and (max-width: 1100px) {
+        row-gap: 5px;
+    }
+    
 }
 
 .social-networks {
@@ -83,6 +147,155 @@ button {
     }
 }
 
+
+.mobile-header, .mobile-footer {
+    background-color: #000000;
+    padding-top: 0;
+    display: none;
+
+    @media only screen and (max-width: 933px) {
+        display: block;
+    }
+
+}
+.mobile-header {
+    margin-bottom: -1px;
+}
+
+.mobile-footer {
+   margin-top: -1px;
+}
+
+.mobile-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 16px;
+}
+.mobile-header__elements-wrapper {
+    display: flex;
+
+    .sign-in {
+        position: relative;
+    }
+}
+
+.mobile-social-networks {
+    margin: 10px 0 0 22px;
+}
+
+
+#menu__toggle {
+    opacity: 0;
+}
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 24px;
+    right: 110px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #ffffff;
+transition-duration: .05s;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 270px;
+    height: 100%;
+    padding: 100px 0;
+    background-color: #000000;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    z-index: 4;
+    transition-duration: .25s;
+    overflow: hidden;
+
+    @media only screen and (max-width: 400px) {
+        width: 240px;
+    }
+
+    li {
+        z-index: 3; 
+        position: relative
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 800px;
+        height: 400px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
+        transform: translate(-50%, 0);
+        top: 0;
+        left:0;
+    }
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    font-size: 17px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: .25s;
+}
+.menu__item:hover {
+    background-color: #FF3333;
+}
+
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    top: 0;
+    right: 0;
+}
+
+.box-btn > span {
+    transform: rotate(45deg);
+    position: absolute;
+    left: -110px;
+    z-index:5;
+    @media only screen and (max-width: 400px) {
+        left: -80px;
+    }
+}
+.box-btn > span::before {
+    top: 0;
+    transform: rotate(0);
+    }
+.box-btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+.menu__box {
+    .sign-in {
+        margin: 55px 0 0 20px;
+    }
+} 
+
 .introduction {
     background-color: #000000;
     position: relative;
@@ -98,6 +311,21 @@ button {
         transform: translate(-75%, 0);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 1400px) {
+            transform: translate(-65%, 0);
+        }
+        @media only screen and (max-width: 1250px) {
+            transform: translate(-60%, 0);
+        }
+        @media only screen and (max-width: 1100px) {
+            transform: translate(-55%, 0);
+        }
+        @media only screen and (max-width: 666px) {
+            transform: translate(-50%, 0);
+            height: 270px;
+            top: -10px;
+        }
     }
 }
 
@@ -108,6 +336,10 @@ button {
     width: 100%;
     overflow: hidden;
     padding: 20px 0;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 0;
+    }
 }
 
 .running-line__line-1 {
@@ -145,6 +377,10 @@ button {
     position: relative;
     overflow: hidden;
 
+    @media only screen and (max-width: 1100px) {
+        padding-top: 64px;
+    }
+
     h2 {
         @extend %h1-h2-font;
         text-align: center;
@@ -162,6 +398,10 @@ button {
         transform: translate(-50%, 0);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 1100px) {
+            height: 969px;
+        }
     }
 }
 
@@ -181,11 +421,26 @@ button {
     gap: 30px;
     margin-top: 60px;
     justify-content: space-between;
+
+    @media only screen and (max-width: 1100px) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 60px auto 0;
+        row-gap: 30px;
+    }
+    @media only screen and (max-width: 1100px) {
+        justify-content: center;
+    }
 }
 
 .goals__point-wrapper {
     max-width: 319px;
     @extend %gradient-border-style;
+
+    @media only screen and (max-width: 1100px) {
+        max-width: 269px;
+    }
 }
 
 .goals__point {
@@ -197,6 +452,17 @@ button {
     gap: 20px;
     height: 282px;
     @extend %gradient-block;
+
+    @media only screen and (max-width: 1250px) {
+        height: 340px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        height: 282px;
+        padding: 15px 10px;
+        height: 262px;
+    }
+    
     
 
     .vipcoin-icon-1  {
@@ -228,6 +494,16 @@ button {
     z-index: 2;
     position: relative;
 
+    @media only screen and (max-width: 1250px) {
+        padding: 200px 0;
+    }
+    @media only screen and (max-width: 1100px) {
+        padding: 50px 0 140px;
+    }
+    @media only screen and (max-width: 730px) {
+        padding: 50px 0 100px;
+    }
+
     p, span {
         max-width: 933px;
         font-size: 50px;
@@ -235,26 +511,55 @@ button {
         margin: auto;
         text-align: center;
         position: relative;
+
+        @media only screen and (max-width: 933px) {
+            max-width: 690px;
+            font-size: 40px;
+        }
+        @media only screen and (max-width: 730px) {
+            max-width: 510px;
+            font-size: 39px;
+        }
+        @media only screen and (max-width: 730px) {
+            max-width: 390px;
+            font-size: 39px;
+        }
+        @media only screen and (max-width: 400px) {
+            max-width: 290px;
+            font-size: 38px;
+        }
+    }
+
+    p {
+        @include pseudoelement-oval (665.23px, 278.03px, 35%, 25.5%);
+
+        @media only screen and (max-width: 1250px) {
+            @include pseudoelement-oval (638.12px, 266.7px, 35%, 26.5%);
+        }
+
+        @media only screen and (max-width: 1100px) {
+            @include pseudoelement-oval (538.12px, 199.7px, 45%, 32.5%);
+        }
+        @media only screen and (max-width: 933px) {
+            @include pseudoelement-oval (538.12px, 199.7px, 45%, 50%);
+        }
+        @media only screen and (max-width: 530px) {
+            @include pseudoelement-oval (400px, 159.7px, 56%, 50%);
+        }
+        @media only screen and (max-width: 400px) {
+            @include pseudoelement-oval (300px, 109.7px, 56%, 50%);
+        }
+        
     }
 
     span {
         margin: 0 10px;
-    }
-
-    p::after {
-        content: "";
-        position: absolute;
-        width: 665.23px;
-        height: 278.03px;
-        top: 35%;
-        left: 25.5%;
-        transform: translate(-50%, -50%) rotate(15.78deg);
-        border: 0.5px solid #FF3333;
-        border-radius: 50%;
-        z-index: -1;
-        opacity: 50%;
+        @media only screen and (max-width: 730px) {
+            margin: 0;
+        }
     }
 }
+
 
 .underline::after {
     content: "";
@@ -267,10 +572,16 @@ button {
     z-index: -1;
 }
 
+
 .last-section {
     background-color: #000000;
     position: relative;
     padding: 71px 0 84px;
+    margin-top: -1px;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 0;
+    }
 }
 
 .last-section__container {
@@ -286,6 +597,13 @@ button {
         transform: translate(-50%, -50%);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+        @media only screen and (max-width: 1100px) {
+            height: 589px;
+        }
+        @media only screen and (max-width: 666px) {
+            height: 289px;
+            top: 27%;
+        }
     }
 }
 
@@ -295,6 +613,16 @@ button {
     max-width: 1170px;
     position: relative;
     z-index: 1;
+
+    @media only screen and (max-width: 1100px) {
+        padding: 30px 0 190px;
+    }
+    @media only screen and (max-width: 933px) {
+        padding: 30px 0 160px;
+    }
+    @media only screen and (max-width: 666px) {
+        padding: 30px 0 100px;
+    }
     
     .vipcoin-icon {
         @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-gradient), "VIP COIN", 24px, 400);
@@ -302,10 +630,51 @@ button {
         top: 20%;
         left: 80%;
         animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+
+        @media only screen and (max-width: 1250px) {
+            @include vipcoin-icon (115px, 115px, var(--rhombus-color-gradient), "VIP COIN", 21px, 400);
+            top: 21%;
+            position: absolute;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            @include vipcoin-icon (100px, 100px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
+            left: 78%;
+            top: 12%;
+            position: absolute;
+        }
+
+        @media only screen and (max-width: 933px) {
+            @include vipcoin-icon (80px, 80px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+            left: 78%;
+            top: 12%;
+            position: absolute;
+        }
+        @media only screen and (max-width: 666px) {
+            @include vipcoin-icon (80px, 80px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+            top: 70%;
+            position: absolute;
+            left: 43%;
+        }
+
+        @media only screen and (max-width: 530px) {
+            @include vipcoin-icon (80px, 80px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+            top: 82%;
+            position: absolute;
+            left: 40%;
+        }
+        @media only screen and (max-width: 400px) {
+            left: 35%;
+            top: 79%;
+        }
     }
 
     h1 {
         @extend %h1-h2-font;
+
+        @media only screen and (max-width: 666px) {
+           text-align: center;
+        }
     }
 }
 
@@ -317,6 +686,11 @@ button {
     display: flex;
     flex-direction: column;
     align-items: end;
+
+    @media only screen and (max-width: 1250px) {
+        align-items: center;
+    }
+    
     
     .vipcoin-icon {
         @include vipcoin-icon (107.42px, 107.42px, var(--rhombus-color-gradient), "VIP COIN", 19px, 400);
@@ -324,6 +698,37 @@ button {
         top: 40%;
         left: 80%;
         animation: 3s cubic-bezier(0.63,-0.01, 0.12, 0.97) infinite rotate;
+
+        @media only screen and (max-width: 1250px) {
+            left: 70%;
+            top: 38%;
+        }
+        @media only screen and (max-width: 1100px) {
+            top: 35%;
+            left: 66%;
+        }
+        @media only screen and (max-width: 933px) {
+            @include vipcoin-icon (80px, 80px, var(--rhombus-color-gradient), "VIP COIN", 16px, 400);
+            left: 65%;
+            top: 35%;
+            position: absolute;
+            
+        }
+        @media only screen and (max-width: 666px) {
+            @include vipcoin-icon (70px, 70px, var(--rhombus-color-gradient), "VIP COIN", 14px, 400);
+            left: 65%;
+            top: 35%;
+            position: absolute;
+        }
+        @media only screen and (max-width: 530px) {
+            @include vipcoin-icon (70px, 70px, var(--rhombus-color-gradient), "VIP COIN", 14px, 400);
+            left: 72%;
+            position: absolute;
+        }
+        @media only screen and (max-width: 400px) {
+            @include vipcoin-icon (50px, 50px, var(--rhombus-color-gradient), "VIP COIN", 10px, 400);
+            position: absolute;
+        }
     }
 
     h2 {
@@ -344,12 +749,25 @@ button {
     margin-right: 68px;
     width: max-content;
     text-align: center;
+    @media only screen and (max-width: 933px) {
+        margin-right: 5px;
+    }
 }
 
 .introduction__title-part2 {
     position: absolute;
     top: 45%;
     left: 9%;
+
+    @media only screen and (max-width: 1250px) {
+        top: 41%;
+    }
+    @media only screen and (max-width: 666px) {
+        position: relative;
+        text-align: center;
+        left: 0;
+    }
+    
 }
 
 .last-section__title-part2 {
@@ -364,8 +782,21 @@ button {
     margin-top: 50px;
     padding-bottom: 120px;
 
+    @media only screen and (max-width: 1100px) {
+        padding-bottom: 90px;
+    }
+
     button {
         @extend %button-style;
+        z-index: 2;
+        position: relative;
+        @media only screen and (max-width: 666px) {
+            margin-top: 20px;
+        }
+    }
+    @media only screen and (max-width: 666px) {
+        flex-direction: column;
+        margin-top: 0;
     }
 }
 
@@ -377,7 +808,7 @@ button {
     button {
         @extend %button-style;
         margin: 50px 0 30px;
-        z-index: 1;
+        z-index: 2;
     }
 
     a {
@@ -395,10 +826,245 @@ button {
     font-size: 24px;
     font-weight: 400;
     line-height: 130%;
+
+    @media only screen and (max-width: 1100px) {
+        z-index: 1;
+    }
+    @media only screen and (max-width: 666px) {
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+        z-index: 1;
+        position: relative;
+    }
+}
+
+.stock-exchange-container {
+    display: flex;
+    justify-content: center;
+    gap: 283px;
+    align-items: center;
+    padding: 100px 0;
+
+    @media only screen and (max-width: 1250px) {
+        justify-content: space-between;
+        gap: 0;
+    }
+    @media only screen and (max-width: 1100px) {
+        padding: 60px 0;
+    }
+    @media only screen and (max-width: 933px) {
+        flex-direction: column;
+    }
+    
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 335px;
+        margin-top: 15px;
+        @media only screen and (max-width: 933px) {
+            text-align: center;
+            margin: 15px auto 0;
+        }
+    }
+
+    h2 {
+        color: #000000;
+        font-size: 100px;
+        line-height: 130%;
+        font-weight: 500;
+        max-width: 423px;
+        @media only screen and (max-width: 933px) {
+            font-size: 80px;
+            text-align: center;
+        }
+    }
+}
+
+.stock-exchange__image-wrapper {
+    display: flex;
+    flex-direction: column;
+    img {
+        @media only screen and (max-width: 530px) {
+            width: 380px;
+            height: 210px;
+            
+            image-rendering: pixelated;
+        }
+        @media only screen and (max-width: 400px) {
+            width: 280px;
+            height: 150px;
+            image-rendering: pixelated;
+            margin: auto;
+        }
+    }
+}
+
+.staking-section {
+    background-color: #000000;
+
+    .container {
+        padding: 157px 16px 43px;
+        position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            padding-top: 100px;
+        }
+        @media only screen and (max-width: 530px) {
+            overflow: hidden;
+        }
+
+        &::after {
+            @extend %gradient-block-pseudoelement;
+            top: 88px;
+            left: 48%;
+
+            @media only screen and (max-width: 1100px) {
+                top: 8px;
+                left: 50%;
+            }
+        }
+    }
+}
+
+.staking__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 69px;
+
+    h2 {
+        @extend %h1-h2-font;
+        margin: 40px 0 0 114px;
+        position: relative;
+        @include pseudoelement-oval (638.12px, 266.7px, 85%, 44.2%);
+
+        @media only screen and (max-width: 1400px) {
+            @include pseudoelement-oval (618.12px, 246.7px, 70%, 49%);
+        }
+        @media only screen and (max-width: 933px) {
+            margin-left: 70px;
+            @include pseudoelement-oval (418.12px, 180.7px, 70%, 45%);
+        }
+        @media only screen and (max-width: 933px) {
+            margin-left: 70px;
+            @include pseudoelement-oval (418.12px, 180.7px, 70%, 45%);
+        }
+        @media only screen and (max-width: 700px) {
+            margin: 40px auto 0 auto;
+        }
+        @media only screen and (max-width: 530px) {
+            max-width: 240px;
+            text-align: center;
+            @include pseudoelement-oval (400px, 159.7px, 60%, 50%);
+        }
+        @media only screen and (max-width: 400px) {
+            max-width: 240px;
+            text-align: center;
+            @include pseudoelement-oval (300px, 109.7px, 60%, 50%);
+        }
+
+    }
+    
+
+    p {
+        font-size: 24px;
+        line-height: 130%;
+    }
+
+    & > :nth-child(1) {
+        max-width: 209px;
+        margin-left: 203px;
+        @media only screen and (max-width: 933px) {
+            margin-left: 50px;
+        }
+        @media only screen and (max-width: 530px) {
+            margin-left: 40px;
+        }
+    }
+
+    & > :nth-child(3) {
+        max-width: 266px;
+        align-self: flex-end;
+        margin: 40px 100px 0 0;
+        @media only screen and (max-width: 933px) {
+            margin-right: 0;
+        }
+    }
+}
+
+.staking__points-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 31px;
+
+    @media only screen and (max-width: 1250px) {
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin: 31px auto 0;
+        row-gap: 30px;
+        column-gap: 25px;
+     }
+     @media only screen and (max-width: 600px) {
+        justify-content: center;
+     }
+}
+
+.staking__point__border {
+    @extend %gradient-border-style;
+    max-width: 319px;
+    height: 206px;
+    box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 270px;
+        height: 230px;
+    }
+}
+
+.staking__point {
+    @extend %gradient-block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 35px;
+
+    @media only screen and (max-width: 1400px) {
+        padding: 16 36px;
+    }
+
+    & > :nth-child(1) {
+        font-size: 24px;
+        line-height: 120%;
+        font-weight: 600;
+        padding: 0 40px;
+
+        @media only screen and (max-width: 1400px) {
+            padding: 0 20px;
+        }
+    }
+
+    & > :nth-child(2) {
+        font-size: 20px;
+        line-height: 130%;
+
+        @media only screen and (max-width: 1400px) {
+            height: 130px;
+        }
+    }
 }
 
 .packet-slider-section {
-    margin-bottom: 100px;
+    margin: 157px 0 100px;
+
+    @media only screen and (max-width: 1100px) {
+        margin: 90px 0 70px;
+    }
 }
 
 .packet-slider__title-text {
@@ -406,7 +1072,20 @@ button {
     justify-content: center;
     column-gap: 248px;
     align-items: end;
-    margin-top: 100px;
+
+    @media only screen and (max-width: 1250px) {
+        column-gap: 140px;
+    }
+    @media only screen and (max-width: 1100px) {
+        column-gap: 80px;
+    }
+    @media only screen and (max-width: 933px) {
+        flex-direction: column;
+        align-items: start;
+    }
+    @media only screen and (max-width: 530px) {
+        align-items: center;
+    }
 }
 
 .packet-slider__title {
@@ -418,6 +1097,9 @@ button {
 .packet-slider__text {
     color: #000000;
     font-size: 24px;
+    @media only screen and (max-width: 530px) {
+        text-align: center;
+    }
 }
 
 .packet-slider__main-wrapper {
@@ -435,6 +1117,10 @@ button {
     text-align: center;
     cursor: pointer;
     transition: all 1s ease;
+    @media only screen and (max-width: 530px) {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .packet-slider__prev-button:hover, .packet-slider__next-button:hover {
@@ -447,10 +1133,25 @@ button {
 
 .packet-slider__prev-button svg {
     margin: 3px 9px 0 0;
+    width: 31px;
+    height: 30px;
+    @media only screen and (max-width: 530px) {
+        width: 20px;
+        height: 20px;
+        margin: 4px 3px 0 0;
+    }
 }
 
 .packet-slider__next-button svg{
     margin: 3px 0 0 7px;
+    width: 31px;
+    height: 30px;
+
+    @media only screen and (max-width: 530px) {
+        width: 20px;
+        height: 20px;
+        margin: 4px -2px 0 0;
+    }
 }
 
 .packet-slider {
@@ -463,12 +1164,28 @@ button {
     max-width: 1150px;
     width: 100%;
     margin-bottom: 20px;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 860px;
+    }
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 573px;
+    }
+    @media only screen and (max-width: 933px) {
+        max-width: 288px;
+    }
+    @media only screen and (max-width: 400px) {
+        max-width: 188px;
+    }
 }
         
 .packet-slider__slide{
     margin: 0 !important; /* Remove any margin from slides */
-    width: max-content !important;
     padding: 20px 18.5px;
+    @media only screen and (max-width: 400px) {
+        padding: 20px 0;
+    }
 }
                     
 .packet-slider__packet {
@@ -484,6 +1201,13 @@ button {
     position: relative;
     will-change: transform;
     transition: all 1s ease;
+    @media only screen and (max-width: 530px) {
+        width: 200px;
+        margin: 42.4px auto 0 auto;
+    }
+    @media only screen and (max-width: 400px) {
+        width: 150px;
+    }
 }
 
 .packet-slider__packet:hover {
@@ -531,16 +1255,726 @@ button {
     top: -86.84px;
     left: 42.42px;
     transform: translate(50%, 51%);
+    @media only screen and (max-width: 530px) {
+        left: 16.42px;
+    }
+    @media only screen and (max-width: 400px) {
+        left:-10px;
+    }
 }
 
 .swiper-pagination {
     padding-top: 30px !important;
 }
 
+.referal-system-section {
+    background-color: #000000;
+    padding-bottom: 100px;
+
+    .container {
+        padding-top: 200px;
+        position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            padding-top: 160px;
+        }
+        @media only screen and (max-width: 530px) {
+           overflow: hidden;
+        }
+
+        &::after {
+            @extend %gradient-block-pseudoelement;
+            top: 29px;
+            left: 50%;
+        }
+    }
+}
+
+.referal-system__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 69px;
+
+    h2 {
+        @extend %h1-h2-font;
+        margin: auto;
+        position: relative;
+        @include pseudoelement-oval (638.12px, 266.7px, 70%, 49%);
+
+        @media only screen and (max-width: 1400px) {
+            @include pseudoelement-oval (618.12px, 246.7px, 70%, 49%);
+        }
+        @media only screen and (max-width: 933px) {
+            margin-left: 70px;
+            @include pseudoelement-oval (418.12px, 180.7px, 70%, 45%);
+        }
+        @media only screen and (max-width: 530px) {
+            margin: auto;
+            max-width: 305px;
+            text-align: center;
+            @include pseudoelement-oval (400px, 159.7px, 60%, 50%);
+        }
+        @media only screen and (max-width: 400px) {
+            @include pseudoelement-oval (300px, 109.7px, 60%, 50%);
+        }
+    }
+
+    p {
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 358px;
+        align-self: flex-end;
+        @media only screen and (max-width: 530px) {
+           text-align: center;
+        }
+    }
+}
+
+.referal-system__points-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    @media only screen and (max-width: 933px) {
+        flex-direction: column;
+    }
+
+}
+
+.referal-system__point-border {
+    @extend %gradient-border-style;
+    box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.3), inset 30px 30px 36px rgba(21, 21, 21, 0.5);
+    max-width: 554px;
+    width: 100%;
+    @media only screen and (max-width: 933px) {
+        max-width: 660px;
+        margin: auto;
+    }
+}
+
+.referal-system__point {
+    padding: 30px 0 30px 30px;
+    @extend %gradient-block;
+
+    @media only screen and (max-width: 1100px) {
+        padding-right: 10px;
+    }
+
+    & > :nth-child(1) {
+        font-size: 36px;
+        line-height: 120%;
+        font-weight: 600;
+        max-width: 148px;
+        @media only screen and (max-width: 1100px) {
+            max-width: fit-content;
+        }
+    }
+
+    & > :nth-child(2) {
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 456px;
+        height: 62px;
+        margin-top: 30px;
+        @media only screen and (max-width: 1100px) {
+            max-width: fit-content;
+            margin-top: 10px;
+            height: fit-content;
+        }
+    }
+
+}
+
+.referal-system__reward-wrapper {
+    display: flex;
+    gap: 35px;
+    margin-top: 49px;
+
+    @media only screen and (max-width: 1100px) {
+        gap: 15px;
+    }
+    @media only screen and (max-width: 1100px) {
+        margin-top: 19px;
+    }
+    @media only screen and (max-width: 530px) {
+        flex-direction: column;
+    }
+}
+
+.referal-system__reward {
+   
+    & > :nth-child(1) {
+        font-size: 26px;
+        line-height: 130%;
+        @media only screen and (max-width: 1100px) {
+            height: 68px;
+        }
+        @media only screen and (max-width: 933px) {
+            height: fit-content;
+        }
+    }
+
+    & > :nth-child(2) {
+        font-size: 20px;
+        line-height: 130%;
+        margin-top: 10px;
+    }
+
+    &-text1, &-text3 {
+        max-width: 170px;
+        width: 100%;
+        @media only screen and (max-width: 530px) {
+            max-width: none;
+        }
+    }
+
+    &-text2, &-text4 {
+        max-width: 286px;
+        width: 100%;
+        @media only screen and (max-width: 530px) {
+            max-width: none;
+        }
+    }
+
+    &-text1, &-text2 {
+        padding-right: 30px;
+
+        @media only screen and (max-width: 1250px) {
+            padding-right: 5px;
+        }
+        
+    }
+}
+
+.referal-system__example-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    @media only screen and (max-width: 933px) {
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 530px) {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    p {
+        max-width: 434px;
+        margin-top: 30px;
+        font-size: 20px;
+        line-height: 130%;
+        min-height: 104px;
+
+        @media only screen and (max-width: 1250px) {
+            max-width: 334px;
+            padding-right: 5px;
+            height: 156px;
+        }
+        @media only screen and (max-width: 1100px) {
+            max-width: 274px;
+        }
+        @media only screen and (max-width: 933px) {
+            max-width: 534px;
+            margin-top: 25px;
+            height: max-content;
+        }
+        @media only screen and (max-width: 680px) {
+            max-width: 434px;
+        }
+        @media only screen and (max-width: 615px) {
+            max-width: 355px;
+        }
+    }
+}
+
+.referal-system__example-text1 {
+    padding-right: 70px;
+}
+
+
+.referal-system__rhombus {
+    @include vipcoin-icon (60px, 60px, var(--rhombus-color-red), "!", 30px, 400);
+}
+
+.referal-system__example-expl {
+    max-width: 298px;
+    width: 100%;
+    margin: 40px 51px 0  auto ;
+    font-size: 20px;
+    line-height: 130%;
+    opacity: 70%;
+
+    @media only screen and (max-width: 1100px) {
+        margin-right: 0;
+    }
+    @media only screen and (max-width: 933px) {
+        margin-top: 10px;
+    }
+}
+
+.promo-title__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1821px;
+    width: 100%;
+    margin: 100px auto;
+    padding: 0 16px;
+
+    @media only screen and (max-width: 1100px) {
+        margin: 40px auto;
+    }
+
+    h2 {
+        font-family: 'Lato-Medium';
+        font-weight: 500;
+        font-size: 400px;
+        line-height: 130%;
+        color: #FF3333;
+
+        @media only screen and (max-width: 1830px) {
+            font-size: 300px;
+        }
+        @media only screen and (max-width: 1400px) {
+            font-size: 250px;
+        }
+        @media only screen and (max-width: 1250px) {
+            font-size: 210px;
+        }
+        @media only screen and (max-width: 933px) {
+            font-size: 160px;
+        }
+        @media only screen and (max-width: 733px) {
+            font-size: 140px;
+        }
+        @media only screen and (max-width: 640px) {
+            font-size: 120px;
+        }
+        @media only screen and (max-width: 530px) {
+            font-size: 90px;
+        }
+        @media only screen and (max-width: 400px) {
+            font-size: 55px;
+        }
+    }
+
+    @media only screen and (max-width: 1830px) {
+        max-width: 1600px;
+    }
+}
+
+.promo-title__rhombus {
+    @include vipcoin-icon (211px, 211px, var(--rhombus-color-red), "", 16px, 400);
+
+    @media only screen and (max-width: 1830px) {
+        @include vipcoin-icon (180px, 180px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 1400px) {
+        @include vipcoin-icon (140px, 140px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (110px, 110px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 933px) {
+        @include vipcoin-icon (90px, 90px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 733px) {
+        @include vipcoin-icon (70px, 70px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 733px) {
+        @include vipcoin-icon (60px, 60px, var(--rhombus-color-red), "", 16px, 400);
+    }
+    @media only screen and (max-width: 530px) {
+        @include vipcoin-icon (40px, 40px, var(--rhombus-color-red), "", 16px, 400);
+    }
+}
+
+.promo__quick-start__title {
+    display: flex;
+    margin-bottom: 100px;
+    position: relative;
+    @media only screen and (max-width: 530px) {
+        justify-content: center;
+        margin-bottom: 120px;
+    }
+    h2 {
+        @extend %h1-h2-font;
+        color: #000000;
+        max-width: 561px;
+        margin-left: 114px;
+        position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            margin-left: 34px;
+        }
+        @media only screen and (max-width: 933px) {
+            margin: 0 15px 0 0;
+        }
+        @media only screen and (max-width: 530px) {
+            max-width: 241px;
+        }
+        @media only screen and (max-width: 400px) {
+            margin-right: 0;
+        }
+    }
+}
+
+.promo__quick-start__element {
+    color: #000000;
+    position: absolute;
+    font-size: 24px;
+    line-height: 130%;
+    top:  70%;
+    left: 78%;
+    max-width: 348px;
+    width: 100%;
+    @media only screen and (max-width: 933px) {
+        top:  95%;
+        left: 0;
+    }
+    @media only screen and (max-width: 530px) {
+        max-width: none;
+        min-width: 320px;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+    @media only screen and (max-width: 400px) {
+        min-width: 240px;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+.promo__quick-start__rhombus {
+    @include vipcoin-icon (141.42px, 141.42px, var(--rhombus-color-red), "X2", 50px, 600);
+
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (110px, 110px, var(--rhombus-color-red), "X2", 43px, 600);
+    }
+    @media only screen and (max-width: 933px) {
+        @include vipcoin-icon (72px, 72px, var(--rhombus-color-red), "X2", 30px, 600);
+    }
+    @media only screen and (max-width: 400px) {
+        position: absolute!important;
+        top: 45px;
+        left: 150px;
+        @include vipcoin-icon (52px, 52px, var(--rhombus-color-red), "X2", 20px, 600);
+    }
+}
+
+.promo__quick-start__points {
+    padding: 100px 115px;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+
+    & > :first-child {
+        @media only screen and (max-width: 933px) {
+            text-align: center;
+        }
+    }
+
+    @media only screen and (max-width: 14000px) {
+        padding: 80px 95px;
+    }
+    @media only screen and (max-width: 1250px) {
+        padding: 50px;
+    }
+    @media only screen and (max-width: 700px) {
+        padding: 20px;
+    }
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        max-width: 681px;
+    }
+}
+
+.promo__quick-start__point-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 933px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 80px;
+        row-gap: 40px;
+    }
+    @media only screen and (max-width: 700px) {
+        column-gap: 40px;
+    }
+    @media only screen and (max-width: 591px) {
+        row-gap: 60px;
+    }
+}
+
+.promo__quick-start__point-element {
+    max-width: 298px;
+
+    @media only screen and (max-width: 1250px) {
+        max-width: 238px;
+    }
+}
+
+.promo__quick-start__point-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+    @media only screen and (max-width: 400px) {
+        align-items: center;
+    }
+
+    p {
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: 0.02em;
+        max-width: 210px;
+        position: relative;
+
+        @media only screen and (max-width: 1250px) {
+            font-size: 30px;
+            max-width: 160px;
+        }
+    }
+}
+
+.promo__quick-start__point-rhombus {
+    @include vipcoin-icon (84.85px, 84.85px, var(--rhombus-color-red), "X2", 30px, 600);
+
+    @media only screen and (max-width: 1250px) {
+        @include vipcoin-icon (64.85px, 64.85px, var(--rhombus-color-red), "X2", 25px, 600);
+    }
+    @media only screen and (max-width: 400px) {
+        @include vipcoin-icon (52px, 52px, var(--rhombus-color-red), "X2", 20px, 600);
+    }
+}
+
+.promo__heat, .promo__tesla {
+    margin-top: 200px;
+
+    @media only screen and (max-width: 1100px) {
+        margin-top: 100px;
+    }
+    @media only screen and (max-width: 933px) {
+        margin-top: 70px;
+    }
+}
+
+.promo__heat__title, .promo__tesla__title {
+    margin-left: 114px;
+    @media only screen and (max-width: 530px) {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        margin-left: 34px;
+    }
+    @media only screen and (max-width: 933px) {
+        margin-left: 0;
+    }
+
+    h2 {
+        @extend %h1-h2-font;
+        color: #000000;
+    }
+
+    p {
+        color: #000000;
+        font-size: 24px;
+        line-height: 130%;
+        margin-top: 20px;
+    }
+}
+
+.promo__heat__description, .promo__tesla__description {
+    margin-top: 100px;
+    border: 2px solid #FF3333;
+    border-radius: 8px;
+    padding: 100px 114px;
+
+    @media only screen and (max-width: 1250px) {
+        padding: 50px;
+    }
+    @media only screen and (max-width: 1100px) {
+        margin-top: 50px;
+    }
+    @media only screen and (max-width: 700px) {
+        padding: 20px;
+    }
+    
+    p {
+        color: #000000;
+    }
+}
+
+.promo__heat__gifts, .promo__tesla__gifts {
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 933px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 80px;
+        row-gap: 30px;
+    }
+}
+
+.promo__heat__gift-element, .promo__tesla__gift-element {
+    position: relative;
+    max-width: 193px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: 1100px) {
+        max-width: 163px;
+    }
+    @media only screen and (max-width: 933px) {
+        max-width: 193px;
+    }
+
+    img {
+        z-index: 1;
+        position: relative;
+    }
+    
+    @include promo-element-circle;
+
+    & > :nth-child(2) {
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+        @media only screen and (max-width: 1100px) {
+            margin-top: 0;
+        }
+    }
+
+    & > :nth-child(3) {
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.image-wrapper {
+    height: 125px;
+}
+
+.heat__iphone-icon, .heat__macbook-icon {
+    transform: translate(0, -10%);
+}
+
+.heat__dubai-icon,.tesla-2-icon {
+    transform: translate(0, -5%);
+}
+
+.tesla-1-icon, .tesla-3-icon {
+    transform: translate(0, 5%);
+}
+
+.tesla-4-icon {
+    transform: translate(0, 10%);
+}
+
+.promo__heat__description__scheme, .promo__tesla__description__scheme {
+    margin-top: 50px;
+
+    p {
+        font-size: 24px;
+        line-height: 130%;
+        @media only screen and (max-width: 530px) {
+            text-align: center;
+         }
+
+        span {
+            color: #FF3333;
+            font-size: 24px;
+        }
+    }
+
+    & > :first-child {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    & > :nth-child(2) {
+       margin-top: 20px;
+    }
+
+    & > :nth-child(4) {
+        margin-top: 40px;
+        max-width: 771px;
+    }
+
+    & > :nth-child(5) {
+        margin-top: 20px;
+        max-width: 717px;
+    }
+}
+
+.promo__heat__description__percent-wrapper, .promo__tesla__description__percent-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #FF3333;
+    max-width: 689px;
+    padding: 10px;
+    margin-top: 20px;
+    @media only screen and (max-width: 530px) {
+       flex-direction: column;
+    }
+
+    p {
+        font-size: 20px;
+        @media only screen and (max-width: 933px) {
+            max-width: 120px;
+            width: 100%;
+        }
+        @media only screen and (max-width: 530px) {
+            margin: 0 auto 10px auto;
+         }
+    }
+}
+
+.promo__heat__description__percent-table, .promo__tesla__description__percent-table {
+    display: flex;
+    gap: 30px;
+    @media only screen and (max-width: 933px) {
+        flex-wrap: wrap;
+        justify-content:space-around ;
+    }
+}
+
+.promo__heat__description__percent-element > :first-child, .promo__tesla__description__percent-element > :first-child {
+    color: #FF3333;
+}
+.promo__heat__description__percent-element, .promo__tesla__description__percent-element {
+    @media only screen and (max-width: 933px) {
+        max-width: 100px;
+        width: 100%;
+    }
+    @media only screen and (max-width: 530px) {
+        text-align: center  ;
+    }
+    @media only screen and (max-width: 400px) {
+        max-width: 80px;
+    }
+}
+
 .road-map-section {
     background-color: #000000;
     position: relative;
     padding: 100px 0;
+    margin-top: 100px;
+    @media only screen and (max-width: 1100px) {
+        padding: 60px 0;
+    }
 
     &::after {
         content: "";
@@ -555,6 +1989,10 @@ button {
         transform: translate(-50%, -50%);
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 51, 51, 0.5) 0%, rgba(255, 51, 51, 0) 100%);
         z-index: 0;
+
+        @media only screen and (max-width: 570px) {
+            height: 3800px;
+        }
     }
 }
 
@@ -562,7 +2000,21 @@ button {
     display: flex;
     gap: 151px;
     align-items: end;
-    margin-left: 125px
+    margin-left: 125px;
+
+    @media only screen and (max-width: 1100px) {
+        margin-left: 35px
+    }
+    @media only screen and (max-width: 933px) {
+        margin-left: 0;
+        justify-content: space-between;
+        gap: 0;
+    }
+    @media only screen and (max-width: 570px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .road-map__title {
@@ -578,6 +2030,18 @@ button {
     width: 100%;
     z-index: 1;
     margin-bottom: 18px;
+    @media only screen and (max-width: 1250px) {
+        margin-bottom: 11px;
+    }
+    @media only screen and (max-width: 1100px) {
+        margin-bottom: 9px;
+    }
+    @media only screen and (max-width: 933px) {
+       margin-bottom: 0;
+    }
+    @media only screen and (max-width: 570px) {
+        margin-top: 20px;
+    }
 }
 
 .road-map__table {
@@ -586,12 +2050,34 @@ button {
     grid-template-columns: repeat(5, 250px);
     grid-template-rows: repeat(3, 260px);
     gap: 30px;
+
+    @media only screen and (max-width: 1400px) {
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows: repeat(4, 260px);
+        justify-content: center;
+    }
+    @media only screen and (max-width: 1250px) {
+        grid-template-columns: repeat(3, 250px);
+        grid-template-rows: repeat(5, 260px);
+    }
+    @media only screen and (max-width: 933px) {
+        grid-template-columns: repeat(2, 250px);
+        grid-template-rows: repeat(7, 260px);
+    }
+    @media only screen and (max-width: 570px) {
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(15, 260px);
+    }
 }
 
 .road-map__element-wrapper { //Для создания градиентной границы у блока
     max-width: 248px;
     @extend %gradient-border-style;
+    @media only screen and (max-width: 933px) {
+       height: 260px;
+    }
 }
+
 
 .road-map__element {
     @extend %gradient-block;
